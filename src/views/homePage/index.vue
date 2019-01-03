@@ -439,6 +439,9 @@ export default {
                 height: 600px;
                 background-color:rgba(255,255,255,1);
                 box-shadow:0px 13px 32px 0px rgba(0,0,0,0.1);
+                &:last-of-type{
+                    margin-right: 0;
+                }
                 .top{
                     position: relative;
                     height: 150px;
@@ -586,6 +589,9 @@ export default {
                 transition: all 0.5s;
                 &:hover{
                     box-shadow:0px 18px 22px 0px rgba(59,59,59,0.12);
+                }
+                &:last-of-type{
+                    margin-right: 0;
                 }
                 >img{
                     width:389px;

@@ -103,7 +103,7 @@
     width: 100%;
     height: 100%;
     >.content {
-        min-width: 1290px;
+        min-width: 1300px;
         height: 100%;
         overflow-x: hidden;
         // overflow-y: scroll;
