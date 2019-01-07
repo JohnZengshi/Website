@@ -14,18 +14,18 @@ export default new Router({
     mode: 'history',
     routes: [{
         path: "/",
-        name: "HomePage",
+        name: "首页",
         component: HomePage,
         props: {
             newsletterPopup: false
         }
     }, {
         path: "/ServiceChannels",
-        name: "ServiceChannels",
+        name: "渠道服务",
         component: ServiceChannels,
     }, {
         path: "/CompanyDynamic",
-        name: "CompanyDynamic",
+        name: "公司动态",
         component: CompanyDynamic,
     }, {
         path: "/JoinInvestment",
@@ -33,7 +33,7 @@ export default new Router({
         component: JoinInvestment,
         children: [{
             path: 'Register',
-            name: "Register",
+            name: "渠道入驻",
             component: Register
         },{
             path: 'FillInformation',
@@ -42,7 +42,7 @@ export default new Router({
         }]
     },{
         path: "/RetailOutlets",
-        name: "RetailOutlets",
+        name: "零售网点",
         component: RetailOutlets,
     }]
 })

@@ -11,11 +11,14 @@
                     <img src="../static/images/zhixiangjia_LOGO.png" title="智享家" alt="">
                     <div class="tab display_flex align-items_center">
                         <ul class="display_flex align-items_center">
-                            <router-link :class="{clicked:routerName == 'HomePage'}" class="pointer" tag="li" to="/">首页</router-link>
-                            <router-link :class="{clicked:routerName == 'ServiceChannels'}" class="pointer" tag="li" to="/ServiceChannels">渠道服务</router-link>
-                            <router-link :class="{clicked:routerName == 'CompanyDynamic'}" class="pointer" tag="li" to="/CompanyDynamic">公司动态</router-link>
-                            <router-link :class="{clicked:routerName == 'RetailOutlets'}" class="pointer" tag="li" to="/RetailOutlets">零售网点</router-link>
-                            <!-- <li class="pointer">联系我们</li> -->
+                            <router-link
+                                :key="index"
+                                v-for="(item,index) in topTabList"
+                                class="pointer"
+                                tag="li"
+                                :to="item.url"
+                                :class="{clicked:routerName == item.name}"
+                                >{{item.name}}</router-link>
                         </ul>
                         <a href="http://zxjsj.zhidekan.me/">
                             <el-button type="primary" class="loginBtn">登录</el-button>
@@ -33,18 +36,19 @@
                     <div class="top display_flex justify-content_flex-justify">
                         <div class="left">
                             <ul>
-                                <li class="display_flex flex-direction_column">
-                                    <span>关于我们</span>
-                                    <span>公司简介</span>
-                                    <span>最新动态</span>
-                                    <span>联系我们</span>
+                                <li 
+                                    :key="index"
+                                    v-for="(item,index) in nav_bottomData.list"
+                                    class="display_flex flex-direction_column">
+                                    <span>{{item.name}}</span>
+                                    <router-link 
+                                        :key="idx"
+                                        class="pointer" 
+                                        tag="span" 
+                                        :to="i.url"
+                                        v-for="(i,idx) in item.sub">{{i.name}}</router-link>
                                 </li>
-                                <li class="display_flex flex-direction_column">
-                                    <span>服务中心</span>
-                                    <span>线下零售门店查询</span>
-                                    <router-link :class="{clicked:routerName == 'JoinInvestment'}" class="pointer" tag="span" to="/JoinInvestment/Register">招商加盟</router-link>
-                                    <span>常见问题</span>
-                                </li>
+
                                 <li class="display_flex flex-direction_column">
                                     <span>服务热线：</span>
                                     <span>400-566-1686</span>
@@ -68,7 +72,7 @@
 
 <script>
     import Bscroll from 'better-scroll';
-    import {getNav_top} from "./network/api";
+    import {getNav_top,getNav_bottom} from "./network/api";
     export default {
         name: 'app',
         data() {
@@ -76,6 +80,8 @@
                 routerName: "HomePage",
                 paperScrollTop: 0,
                 topTabChange: false,
+                nav_bottomData:{},
+                getNav_topRES_DATA: [],
             }
         },
         watch: {
@@ -96,6 +102,10 @@
         computed:{
             scroll(){
                 // return new Bscroll(this.$refs.wrapper);
+            },
+            topTabList(){
+                let list = this.getNav_topRES_DATA;
+                return list;
             }
         },
         methods:{
@@ -104,7 +114,24 @@
             }
         },
         mounted(){
-           getNav_top("1458745225");
+           ;
+           (async () => {
+               let getNav_topRES = await getNav_top({
+                   store_no: 1458745225
+               });
+               if (getNav_topRES.errCode == 0) {
+                   this.getNav_topRES_DATA = getNav_topRES.data;
+               }
+           })()
+           ;
+           (async () => {
+               let getNav_bottomRES = await getNav_bottom({
+                   store_no: 1458745225
+               })
+               if (getNav_bottomRES.errCode == 0) {
+                   this.nav_bottomData = getNav_bottomRES.data
+               }
+           })()
         }
     }
 </script>

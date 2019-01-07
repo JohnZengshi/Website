@@ -44,6 +44,7 @@
                 qu1: [],
                 city: '',
                 block: '',
+                selectList:[]
             }
         },
         methods: {
@@ -151,6 +152,10 @@
                         this.qu1 = this.province[index2].children[0].children
                         this.qu = this.province[index2].children[0].children[0].value
                         this.E = this.qu1[0].id
+
+                        this.selectList[0] = this.province[index2].value
+                        this.selectList[1] = this.province[index2].children[0].value;
+                        this.$emit("selectChange",this.selectList);
                     }
                 }
             },
@@ -162,13 +167,15 @@
                         this.qu = this.city[index3].children[0].value
                         this.E = this.qu1[0].id
                         // console.log(this.E)
+
+                        this.selectList[1] = this.city[index3].value;
+                        this.$emit("selectChange",this.selectList);
                     }
                 }
             },
             // 选区
             choseBlock: function (e) {
                 this.E = e;
-                // console.log(this.E)
             },
         },
         created: function () {

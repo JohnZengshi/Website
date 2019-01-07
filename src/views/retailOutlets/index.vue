@@ -9,24 +9,28 @@
         </div>
         <div class="selectAdress display_flex align-items_center justify-content_flex-center">
             <div class="left display_flex align-items_center">
-                <CityLinkage :hiddenRegion="true"></CityLinkage>
-                <el-button>查询</el-button>
+                <CityLinkage 
+                    @selectChange="selectChange"
+                    :hiddenRegion="true"></CityLinkage>
+                <el-button @click="checkRetailOutlets">查询</el-button>
             </div>
             <div class="line"></div>
-            <div class="rigth display_flex align-items_center">
+            <div 
+                v-if="selectCity.length != 0"
+                class="rigth display_flex align-items_center">
                 <img src="../../../static/images/retailOutlets/地址-icon.png" alt="">
-                <span>广东,广州市 附近共有X个零售网点</span>
+                <span>{{selectCity.join(",")}} 附近共有{{daynamicList.length}}个零售网点</span>
             </div>
         </div>
         <div class="daynamicList">
             <ul class="display_flex flex-direction_column align-items_center ">
                 <li class="display_flex" :key="index" v-for="(item,index) in daynamicList">
-                    <img :src="item.img" alt="">
+                    <!-- <img :src="item.img" alt=""> -->
                     <div class="rigth display_flex flex-direction_column">
                         <span class="title">{{item.title}}</span>
                         <span class="line"></span>
                         <span class="address">地址：{{item.address}}</span>
-                        <span class="connet">联系人：{{item.connet}}</span>
+                        <!-- <span class="connet">联系人：{{item.connet}}</span> -->
                         <span class="phone">电话：{{item.phone}}</span>
                     </div>
                 </li>
@@ -36,32 +40,88 @@
 </template>
 <script>
     import CityLinkage from "../../components/cityLinkage";
+    import {getRegion,getRetailer} from "../../network/api";
     export default {
         name: "retailOutlets",
         props: {},
         data() {
             return {
                 paperScrollTop: 0,
-                daynamicList: [{
-                    img: "",
-                    title: "我是标题我是标题我是标题",
-                    address: "深圳市南山区深南大道德赛科技大厦22楼",
-                    connet: "李先生",
-                    phone: "13838388888",
-                }, {
-                    img: "",
-                    title: "我是标题我是标题我是标题",
-                    address: "深圳市南山区深南大道德赛科技大厦22楼",
-                    connet: "李先生",
-                    phone: "13838388888",
-                }]
+                getRetailerRES_DATA: [],
+                cityList:[],
+                selectCity:[]
             }
         },
         components:{
             CityLinkage
         },
+        computed:{
+            daynamicList(){
+                let list = this.getRetailerRES_DATA.map((val)=>{
+                    return {
+                        img: "",
+                        title: val.region_name,
+                        address: val.address,
+                        // connet: "",
+                        phone: val.mobile
+                    }
+                })
+                return list
+            }
+        },
+        methods:{
+            selectChange(val){
+                // console.log(val);
+                this.selectCity = val;
+            },
+            checkRetailOutlets(){
+                ;(async()=>{
+                    let regionId = await this.getRegion(this.selectCity);
+                    let getRetailerRES = await getRetailer({
+                        store_no: 1458745225,
+                        region_id: regionId,
+                    });
+                    if(getRetailerRES.errCode == 0){
+                        this.getRetailerRES_DATA = getRetailerRES.data
+                    }
+                })()
+            },
+            getRegion(selectCity) {
+                let cityList = this.cityList;
+                let cityRegion_id = [];
+                return (async () => {
+                    for (let index = 0; index < selectCity.length; index++) {
+                        const element = selectCity[index];
+                        let item = cityList.find((val) => {
+                            return val.name == element;
+                        });
+                        if (item) {
+                            cityRegion_id.push(item.id);
+                            let getRegionRES = await getRegion({
+                                store_no: 1458745225,
+                                id: item.id
+                            });
+                            if (getRegionRES.errCode == 0) {
+                                cityList = getRegionRES.data;
+                            }
+                        }
+                    }
+                    console.log();
+                    return cityRegion_id[cityRegion_id.length - 1];
+                })()
+            }
+        },
         mounted() {
             this.paperScrollTop = this.$parent.paperScrollTop;
+            ;(async()=>{
+                let getRegionRES = await getRegion({
+                   store_no: 1458745225,
+                   id: "1"
+               });
+               if(getRegionRES.errCode == 0){
+                    this.cityList = getRegionRES.data
+               }
+            })()
         }
     }
 </script>
@@ -138,6 +198,7 @@
         .daynamicList {
             width: 100%;
             background-color: #FFF;
+            min-height: 250px;
             ul {
                 width: 100%;
                 padding-top: 30px;

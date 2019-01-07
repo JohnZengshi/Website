@@ -2,11 +2,10 @@
     <div class="HomePage">
         <div class="banner">
             <swiper class="swiperConent" :options="swiperOption" ref="mySwiper">
-                <swiper-slide>
-                    <img src="../../../static/images/homePage/banner.png" alt="">
-                </swiper-slide>
-                <swiper-slide>
-                    <img src="../../../static/images/homePage/banner.png" alt="">
+                <swiper-slide
+                    :key="index"
+                    v-for="(item,index) in bannerList">
+                    <img :src="item.img_url" alt="">
                 </swiper-slide>
                 <div class="swiper-pagination"  slot="pagination"></div>
             </swiper>
@@ -139,7 +138,7 @@
         </div>
         <div class="content_03">
             <ul class="display_flex align-items_center justify-content_flex-center">
-                <li class="display_flex flex-direction_column align-items_center">
+                <li class="display_flex flex-direction_column align-items_center pointer">
                     <div class="top">
                         <img src="../../../static/images/homePage/comprehensive-bg.png.png" alt="">
                         <span>全方位防范，安全有保障</span>
@@ -161,7 +160,7 @@
                     <span>室内把手防猫眼开锁设计</span>
                     <span>………</span>
                 </li>
-                <li class="display_flex flex-direction_column align-items_center">
+                <li class="display_flex flex-direction_column align-items_center pointer">
                     <div class="top">
                         <img src="../../../static/images/homePage/EasyManagement-icon.png" alt="">
                         <span>轻松管理，操作方便</span>
@@ -183,7 +182,7 @@
                     <span>远程授权临时密码，可轻松应对临时到访</span>
                     <span>………</span>
                 </li>
-                <li class="display_flex flex-direction_column align-items_center">
+                <li class="display_flex flex-direction_column align-items_center pointer">
                     <div class="top">
                         <img src="../../../static/images/homePage/PracticalFunction-bg.png" alt="">
                         <span>实用功能，出类拔萃</span>
@@ -278,7 +277,7 @@
                     class="display_flex flex-direction_column align-items_center"
                     :key="index"
                     v-for="(item,index) in newsList">
-                    <img src="" alt="">
+                    <img :src="item.img" alt="">
                     <span class="title">{{item.title}}</span>
                     <span class="line"></span>
                     <span class="time">{{item.time}}</span>
@@ -292,28 +291,13 @@
 <script>
 // import countTo from 'vue-count-to';
 // import NumberGrow from "../../components/numberGrow";
+import {getTopNews,getBanner} from "../../network/api";
 export default {
     name: "HomePage",
     props:{},
     data(){
         return {
             paperScrollTop: 0,
-            newsList:[{
-                img:"",
-                title:"万佳安&值得看携“智生活”首秀2018中国移动全球合作伙伴大",
-                time:"2018-12-07 公司动态",
-                content:"12月6日，以5G连接新时代为主题的2018中国移动全球合作伙伴大会在广州保利世贸博览馆正式拉开帷幕。作为全作为全作为全作为全作为全作为全作为全",
-            },{
-                img:"",
-                title:"万佳安&值得看携“智生活”首秀2018中国移动全球合作伙伴大",
-                time:"2018-12-07 公司动态",
-                content:"12月6日，以5G连接新时代为主题的2018中国移动全球合作伙伴大会在广州保利世贸博览馆正式拉开帷幕。作为全作为全作为全作为全",
-            },{
-                img:"",
-                title:"万佳安&值得看携“智生活”首秀2018中国移动全球合作伙伴大",
-                time:"2018-12-07 公司动态",
-                content:"12月6日，以5G连接新时代为主题的2018中国移动全球合作伙伴大会在广州保利世贸博览馆正式拉开帷幕。作为全作为全作为全作为全作为全",
-            }],
             swiperOption: {
                 autoplay: true,
                 grabCursor : true,
@@ -324,6 +308,8 @@ export default {
             },
             content_01_titleActive: false,
             content_01_listActive: false,
+            getTopNewsRES_DATA: [],
+            bannerList: [],
         }
     },
     components:{
@@ -331,7 +317,17 @@ export default {
         // NumberGrow
     },
     computed: {
-
+        newsList() {
+            let list = this.getTopNewsRES_DATA.map((val) => {
+                return {
+                    img: val.cover_img,
+                    title: val.title,
+                    time: `${val.update_time} 公司动态`,
+                    content: val.summary
+                }
+            })
+            return list
+        },
     },
     watch:{
         paperScrollTop:function(val){
@@ -345,6 +341,14 @@ export default {
         setTimeout(()=>{
             this.content_01_titleActive = true;
         },1000);
+
+        ;(async()=>{
+            let getTopNewsRES = await getTopNews({store_no:1458745225});
+            let getBannerRES = await getBanner({store_no:1458745225});
+            this.bannerList = getBannerRES.data;
+            this.getTopNewsRES_DATA = getTopNewsRES.data;
+
+        })()
     }
 }
 </script>
@@ -359,7 +363,7 @@ export default {
             height:480px;
             overflow: hidden;
         }
-        >img{
+        img{
             width: 100%;
             height: 100%;
         }
@@ -570,11 +574,16 @@ export default {
                     height: 150px;
                     width: 100%;
                     margin-bottom: 34px;
+                    overflow: hidden;
                     >img{
                         width: 100%;
                         height: 100%;
                         top: 0;
                         position: absolute;
+                        transition: all 0.5s;
+                        &:hover{
+                            transform: scale(1.1);
+                        }
                     }
                     >span{
                         text-align: center;
@@ -719,7 +728,7 @@ export default {
                 >img{
                     width:389px;
                     height:253px;
-                    background-color: #D5D5D5;
+                    // background-color: #D5D5D5;
                 }
                 >.title{
                     padding: 0 28px;
