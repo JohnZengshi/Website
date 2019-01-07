@@ -4,9 +4,8 @@ import router from './router/index';
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import './assets/style/index';
+import './directive/index';
 Vue.use(ElementUI);
-
-window.evenBus = new Vue();
 Vue.config.productionTip = false
 
 new Vue({
