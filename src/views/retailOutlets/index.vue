@@ -68,6 +68,7 @@
 
 <style lang="less" scoped>
     .retailOutlets {
+        background-color: #FAFAFC;
         .top {
             width: 100%;
             height: 160px;
@@ -105,6 +106,7 @@
             width:100%;
             height:100px;
             background:rgba(255,255,255,1);
+            margin: 14px 0;
             .left{
                 >button{
                     width:212px;
@@ -135,10 +137,10 @@
         }
         .daynamicList {
             width: 100%;
-
+            background-color: #FFF;
             ul {
                 width: 100%;
-                margin-top: 30px;
+                padding-top: 30px;
 
                 li {
                     border-bottom: 1px solid #D8D8D8;

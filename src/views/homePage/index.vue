@@ -1,29 +1,51 @@
 <template>
     <div class="HomePage">
         <div class="banner">
-            <img src="../../../static/images/homePage/banner.png" alt="">
+            <swiper class="swiperConent" :options="swiperOption" ref="mySwiper">
+                <swiper-slide>
+                    <img src="../../../static/images/homePage/banner.png" alt="">
+                </swiper-slide>
+                <swiper-slide>
+                    <img src="../../../static/images/homePage/banner.png" alt="">
+                </swiper-slide>
+                <div class="swiper-pagination"  slot="pagination"></div>
+            </swiper>
         </div>
         <div class="content_01 display_flex justify-content_flex-center">
             <div class="left display_flex flex-direction_column">
-                <div class="display_flex flex-direction_column">
+                <div 
+                    :class="{active:content_01_titleActive}"
+                    class="display_flex flex-direction_column">
                     <span>快速</span>
                     <span>微妙识别解锁只需0.3秒</span>
                 </div>
                 <span>指纹锁采用微妙指纹识别芯片，指纹识别速度仅需0.3秒，芯片所具有的自主学习功能，不同角度的指纹输入都能够自动修正并识别</span>
-                <ul class="display_flex align-items_center justify-content_flex-justify">
-                    <li class="display_flex flex-direction_column align-items_center">
-                        <img src="../../../static/images/homePage/chip-icon.png" alt="">
-                        <span>微秒指纹识别芯片</span>
+                <ul class="display_flex align-items_center justify-content_flex-justify justify-content_flex-center">
+                    <li class="display_flex flex-direction_column align-items_center pointer">
+                        <img 
+                            :class="{active:content_01_listActive}"
+                            src="../../../static/images/homePage/chip-icon.png" alt="">
+                        <span
+                            :class="{active:content_01_listActive}"
+                            >微秒指纹识别芯片</span>
                     </li>
                     <li class="line"></li>
-                    <li class="display_flex flex-direction_column align-items_center">
-                        <img src="../../../static/images/homePage/FingerprintIdentification-icon.png" alt="">
-                        <span>指纹识别</span>
+                    <li class="display_flex flex-direction_column align-items_center pointer">
+                        <img 
+                            :class="{active:content_01_listActive}"
+                            src="../../../static/images/homePage/FingerprintIdentification-icon.png" alt="">
+                        <span
+                            :class="{active:content_01_listActive}"
+                            >指纹识别</span>
                     </li>
                     <li class="line"></li>
-                    <li class="display_flex flex-direction_column align-items_center">
-                        <img src="../../../static/images/homePage/SpeedFast-icon.png" alt="">
-                        <span>指纹识别速度0.3秒</span>
+                    <li class="display_flex flex-direction_column align-items_center pointer">
+                        <img 
+                            :class="{active:content_01_listActive}"
+                            src="../../../static/images/homePage/SpeedFast-icon.png" alt="">
+                        <span
+                            :class="{active:content_01_listActive}"
+                            >指纹识别速度0.3秒</span>
                     </li>
                 </ul>
             </div>
@@ -33,24 +55,33 @@
         </div>
         <div class="countNum">
             <ul class="display_flex justify-content_flex-center">
-                <li class="display_flex justify-content_flex-center align-items_flex-end">
+                <li class="display_flex flex-direction_column align-items_center justify-content_flex-center">
                     <img src="../../../static/images/homePage/50-icon.png" alt="">
+                    <span class="num">
+                        <!-- <countTo :startVal='0' :endVal='50' :duration='3000'></countTo> -->
+                        <!-- <NumberGrow :value="50" :time="5"></NumberGrow> -->
+                        50
+                    </span>
                     <span>全球安防50强第29名</span>
                 </li>
-                <li class="display_flex justify-content_flex-center align-items_flex-end">
+                <li class="display_flex flex-direction_column align-items_center justify-content_flex-center">
                     <img src="../../../static/images/homePage/10-icon.png" alt="">
+                    <span class="num">10</span>
                     <span>中国安防最具影响力十大品牌</span>
                 </li>
-                <li class="display_flex justify-content_flex-center align-items_flex-end">
+                <li class="display_flex flex-direction_column align-items_center justify-content_flex-center">
                     <img src="../../../static/images/homePage/100-icon.png" alt="">
+                    <span class="num">100</span>
                     <span>100家诚信品牌安防供货商</span>
                 </li>
-                <li class="display_flex justify-content_flex-center align-items_flex-end">
+                <li class="display_flex flex-direction_column align-items_center justify-content_flex-center">
                     <img src="../../../static/images/homePage/300-icon.png" alt="">
+                    <span class="num">300</span>
                     <span>300多项荣誉奖项</span>
                 </li>
-                <li class="display_flex justify-content_flex-center align-items_flex-end">
+                <li class="display_flex flex-direction_column align-items_center justify-content_flex-center">
                     <img src="../../../static/images/homePage/500-icon.png" alt="">
+                    <span class="num">500</span>
                     <span>500余项知识产权</span>
                 </li>
             </ul>
@@ -259,6 +290,8 @@
     </div>
 </template>
 <script>
+// import countTo from 'vue-count-to';
+// import NumberGrow from "../../components/numberGrow";
 export default {
     name: "HomePage",
     props:{},
@@ -280,11 +313,38 @@ export default {
                 title:"万佳安&值得看携“智生活”首秀2018中国移动全球合作伙伴大",
                 time:"2018-12-07 公司动态",
                 content:"12月6日，以5G连接新时代为主题的2018中国移动全球合作伙伴大会在广州保利世贸博览馆正式拉开帷幕。作为全作为全作为全作为全作为全",
-            }]
+            }],
+            swiperOption: {
+                autoplay: true,
+                grabCursor : true,
+                effect : 'fade',
+                pagination: {
+                    el: '.swiper-pagination',
+                },
+            },
+            content_01_titleActive: false,
+            content_01_listActive: false,
         }
+    },
+    components:{
+        // countTo,
+        // NumberGrow
+    },
+    computed: {
+
+    },
+    watch:{
+        paperScrollTop:function(val){
+            if(val >= 200){
+                this.content_01_listActive = true;
+            }
+        },
     },
     mounted(){
         this.paperScrollTop = this.$parent.paperScrollTop;
+        setTimeout(()=>{
+            this.content_01_titleActive = true;
+        },1000);
     }
 }
 </script>
@@ -292,7 +352,13 @@ export default {
 <style lang="less" scoped>
 .HomePage{
     .banner{
-        height:480px;
+        width: 100%;
+        .swiperConent{
+            margin: 0 auto;
+            width: 1252px;
+            height:480px;
+            overflow: hidden;
+        }
         >img{
             width: 100%;
             height: 100%;
@@ -312,6 +378,13 @@ export default {
                     color:rgba(77,61,51,1);
                     line-height:84px;
                 }
+                opacity: 0;
+                transform: translateY(10px);
+                transition: all 0.5s;
+                &.active{
+                    opacity: 1;
+                    transform: translateY(0)
+                }
             }
             >span{
                 margin-top: 29px;
@@ -326,6 +399,16 @@ export default {
                     >img{
                         width: 78px;
                         height: 78px;
+                        transform: scale(2);
+                        opacity: 0;
+                        transition: all 0.5s;
+                        &.active{
+                            transform: scale(1);
+                            opacity: 1;
+                        }
+                        &:hover{
+                            transform: scale(1.2)
+                        }
                     }
                     >span{
                         margin-top: 7px;
@@ -333,6 +416,11 @@ export default {
                         font-family:PingFangSC-Regular;
                         font-weight:400;
                         color:rgba(51,51,51,1);
+                        transition: all 0.5s;
+                        opacity: 0;
+                        &.active{
+                            opacity: 1;
+                        }
                     }
                     &.line{
                         width:1px;
@@ -342,7 +430,19 @@ export default {
                 }
             }
         }
-        >.right{
+        >.rigth{
+            @keyframes imgMove {
+                0% {
+                    transform: translateY(-20px)
+                }
+                50% {
+                    transform: translateY(20px)
+                }
+                100% {
+                    transform: translateY(-20px)
+                }
+            }
+            animation: imgMove 5s linear infinite;
             margin-top: 70px;
         }
     }
@@ -356,15 +456,26 @@ export default {
                 height:160px;
                 margin-right: 50px;
                 >img{
-                    position: absolute;
-                    top: 0;
-                    right: 0;
+                    // position: absolute;
+                    // top: 0;
+                    // right: 0;
+                    transform: translateY(47px);
                 }
-                span{
-                    font-size:14px;
-                    font-family:PingFangSC-Regular;
-                    font-weight:400;
-                    color:rgba(255,255,255,1);
+                >span{
+                    &:nth-of-type(1){
+                        font-size:80px;
+                        font-family:Arial-Black;
+                        font-weight:900;
+                        color:rgba(255,255,255,0.2);
+                        line-height:113px;
+                    }
+                    &:nth-of-type(2){
+                        font-size:14px;
+                        font-family:PingFangSC-Regular;
+                        font-weight:400;
+                        color:rgba(255,255,255,1);
+                        transform: translateY(-27px)
+                    }
                 }
             }
         }
@@ -372,6 +483,18 @@ export default {
     .content_02{
         height: 800px;
         .left{
+            @keyframes imgMove {
+                0% {
+                    transform: translateY(-20px)
+                }
+                50% {
+                    transform: translateY(0px)
+                }
+                100% {
+                    transform: translateY(-20px)
+                }
+            }
+            animation: imgMove 5s linear infinite;
             margin-top: 42px;
         }
         .rigth{
