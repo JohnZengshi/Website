@@ -54,33 +54,39 @@
         </div>
         <div class="countNum">
             <ul class="display_flex justify-content_flex-center">
-                <li class="display_flex flex-direction_column align-items_center justify-content_flex-center">
+                <li class="display_flex flex-direction_column align-items_center justify-content_flex-center pointer">
                     <img src="../../../static/images/homePage/50-icon.png" alt="">
                     <span class="num">
-                        <!-- <countTo :startVal='0' :endVal='50' :duration='3000'></countTo> -->
-                        <!-- <NumberGrow :value="50" :time="5"></NumberGrow> -->
-                        50
+                        <NumberGrow ref="NumberGrow_01" :startVal="0" :endVal="50" :duration="4000" :autoplay="false"></NumberGrow>
                     </span>
                     <span>全球安防50强第29名</span>
                 </li>
-                <li class="display_flex flex-direction_column align-items_center justify-content_flex-center">
+                <li class="display_flex flex-direction_column align-items_center justify-content_flex-center pointer">
                     <img src="../../../static/images/homePage/10-icon.png" alt="">
-                    <span class="num">10</span>
+                    <span class="num">
+                        <NumberGrow ref="NumberGrow_02" :startVal="0" :endVal="10" :duration="4000" :autoplay="false"></NumberGrow>
+                    </span>
                     <span>中国安防最具影响力十大品牌</span>
                 </li>
-                <li class="display_flex flex-direction_column align-items_center justify-content_flex-center">
+                <li class="display_flex flex-direction_column align-items_center justify-content_flex-center pointer">
                     <img src="../../../static/images/homePage/100-icon.png" alt="">
-                    <span class="num">100</span>
+                    <span class="num">
+                        <NumberGrow ref="NumberGrow_03" :startVal="0" :endVal="100" :duration="4000" :autoplay="false"></NumberGrow>
+                    </span>
                     <span>100家诚信品牌安防供货商</span>
                 </li>
-                <li class="display_flex flex-direction_column align-items_center justify-content_flex-center">
+                <li class="display_flex flex-direction_column align-items_center justify-content_flex-center pointer">
                     <img src="../../../static/images/homePage/300-icon.png" alt="">
-                    <span class="num">300</span>
+                    <span class="num">
+                        <NumberGrow ref="NumberGrow_04" :startVal="0" :endVal="300" :duration="4000" :autoplay="false"></NumberGrow>
+                    </span>
                     <span>300多项荣誉奖项</span>
                 </li>
-                <li class="display_flex flex-direction_column align-items_center justify-content_flex-center">
+                <li class="display_flex flex-direction_column align-items_center justify-content_flex-center pointer">
                     <img src="../../../static/images/homePage/500-icon.png" alt="">
-                    <span class="num">500</span>
+                    <span class="num">
+                        <NumberGrow ref="NumberGrow_05" :startVal="0" :endVal="500" :duration="4000" :autoplay="false"></NumberGrow>
+                    </span>
                     <span>500余项知识产权</span>
                 </li>
             </ul>
@@ -137,7 +143,9 @@
             </div>
         </div>
         <div class="content_03">
-            <ul class="display_flex align-items_center justify-content_flex-center">
+            <ul 
+                :class="{active:content_03_listActive}"
+                class="display_flex align-items_center justify-content_flex-center">
                 <li class="display_flex flex-direction_column align-items_center pointer">
                     <div class="top">
                         <img src="../../../static/images/homePage/comprehensive-bg.png.png" alt="">
@@ -197,7 +205,9 @@
                     <span>………</span>
                 </li>
             </ul>
-            <img src="../../../static/images/homePage/content_03_back.png" alt="">
+            <img 
+                :style="{top:content_03_img_top + 'px'}"
+                src="../../../static/images/homePage/content_03_back.png" alt="">
         </div>
         <div class="content_04">
             <img src="../../../static/images/homePage/content_04_back.png" alt="">
@@ -205,7 +215,7 @@
                 <span class="title">应用场景</span>
                 <span class="line"></span>
                 <ul class="display_flex">
-                    <li class="display_flex flex-direction_column align-items_center">
+                    <li class="display_flex flex-direction_column align-items_center pointer">
                         <div class="top">
                             <img src="../../../static/images/homePage/亲友来访-bg.png" alt="">
                             <div class="display_flex flex-direction_column align-items_center justify-content_flex-center">
@@ -217,7 +227,7 @@
                         <span>亲友来访，无需苦等</span>
                         <span>主人不在，一样迎接</span>
                     </li>
-                    <li class="display_flex flex-direction_column align-items_center">
+                    <li class="display_flex flex-direction_column align-items_center pointer">
                         <div class="top display_flex flex-direction_column align-items_center justify-content_flex-center">
                             <img src="../../../static/images/homePage/关爱家人-bg.png" alt="">
                             <div class="display_flex flex-direction_column align-items_center justify-content_flex-center">
@@ -230,7 +240,7 @@
                         <span>家人到家，自然提醒</span>
                         <span>备忘提醒，实时关爱</span>
                     </li>
-                    <li class="display_flex flex-direction_column align-items_center">
+                    <li class="display_flex flex-direction_column align-items_center pointer">
                         <div class="top display_flex flex-direction_column align-items_center justify-content_flex-center">
                             <img src="../../../static/images/homePage/多种警示-bg.png" alt="">
                             <div class="display_flex flex-direction_column align-items_center justify-content_flex-center">
@@ -242,7 +252,7 @@
                         <span>多种报警，实时推送</span>
                         <span>按需分类，及时处理</span>
                     </li>
-                    <li class="display_flex flex-direction_column align-items_center">
+                    <li class="display_flex flex-direction_column align-items_center pointer">
                         <div class="top display_flex flex-direction_column align-items_center justify-content_flex-center">
                             <img src="../../../static/images/homePage/紧急救护-bg.png" alt="">
                             <div class="display_flex flex-direction_column align-items_center justify-content_flex-center">
@@ -254,7 +264,7 @@
                         <span>突发情况，及时开门</span>
                         <span>声明通道，随时畅通</span>
                     </li>
-                    <li class="display_flex flex-direction_column align-items_center">
+                    <li class="display_flex flex-direction_column align-items_center pointer">
                         <div class="top display_flex flex-direction_column align-items_center justify-content_flex-center">
                             <img src="../../../static/images/homePage/预设险警-bg.png" alt="">
                             <div class="display_flex flex-direction_column align-items_center justify-content_flex-center">
@@ -282,7 +292,7 @@
                     <span class="line"></span>
                     <span class="time">{{item.time}}</span>
                     <span class="content unilineText">{{item.content}}</span>
-                    <el-button class="btn">详情</el-button>
+                    <el-button class="btn" @click="toDetail(item.url)">详情</el-button>
                 </li>
             </ul>
         </div>
@@ -290,7 +300,7 @@
 </template>
 <script>
 // import countTo from 'vue-count-to';
-// import NumberGrow from "../../components/numberGrow";
+import NumberGrow from "../../components/numberGrow";
 import {getTopNews,getBanner} from "../../network/api";
 export default {
     name: "HomePage",
@@ -308,13 +318,16 @@ export default {
             },
             content_01_titleActive: false,
             content_01_listActive: false,
+            content_03_listActive: false,
             getTopNewsRES_DATA: [],
             bannerList: [],
+            content_03_img_top: 0,
+            numberGrowIng: false,
         }
     },
     components:{
         // countTo,
-        // NumberGrow
+        NumberGrow
     },
     computed: {
         newsList() {
@@ -323,7 +336,8 @@ export default {
                     img: val.cover_img,
                     title: val.title,
                     time: `${val.update_time} 公司动态`,
-                    content: val.summary
+                    content: val.summary,
+                    url: val.url,
                 }
             })
             return list
@@ -331,10 +345,34 @@ export default {
     },
     watch:{
         paperScrollTop:function(val){
-            if(val >= 200){
+            if (val >= 200) {
                 this.content_01_listActive = true;
+                if (val >= 1500) {
+                    this.content_03_img_top = -(val / 10);
+                    if (val >= 1800) {
+                        this.content_03_listActive = true;
+                        if (val >= 3000) {
+                            this.content_03_img_top = 0;
+                        }
+                    }
+                }
+            }
+
+            if (val >= 600 && val <= 1400) {
+                if(this.numberGrowIng) return ;
+                this.numberGrowIng = true;
+                this.$refs['NumberGrow_01'].start();
+                this.$refs['NumberGrow_02'].start();
+                this.$refs['NumberGrow_03'].start();
+                this.$refs['NumberGrow_04'].start();
+                this.$refs['NumberGrow_05'].start();
             }
         },
+    },
+    methods:{
+        toDetail(url){
+            window.open(url);
+        }
     },
     mounted(){
         this.paperScrollTop = this.$parent.paperScrollTop;
@@ -460,12 +498,11 @@ export default {
                 height:160px;
                 margin-right: 50px;
                 >img{
-                    // position: absolute;
-                    // top: 0;
-                    // right: 0;
                     transform: translateY(47px);
+                    transition: all 0.5s;
                 }
                 >span{
+                    transition: all 0.5s;
                     &:nth-of-type(1){
                         font-size:80px;
                         font-family:Arial-Black;
@@ -479,6 +516,20 @@ export default {
                         font-weight:400;
                         color:rgba(255,255,255,1);
                         transform: translateY(-27px)
+                    }
+                }
+                &:hover{
+                    >img{
+                        transform: translateY(25px);
+                    }
+                    >span {
+                        &:nth-of-type(1) {
+                            color: rgba(255, 255, 255, 1);
+                        }
+
+                        &:nth-of-type(2) {
+                            transform: translateY(-20px)
+                        }
                     }
                 }
             }
@@ -545,10 +596,12 @@ export default {
     .content_03{
         height: 800px;
         position: relative;
+        overflow: hidden;
         >img{
-            width: 100%;
-            height: 100%;
+            width: 150%;
+            height: 200%;
             position: absolute;
+            transition: all 0.5s;
             top: 0;
             right: 0;
             z-index: 1;
@@ -566,6 +619,9 @@ export default {
                 height: 600px;
                 background-color:rgba(255,255,255,1);
                 box-shadow:0px 13px 32px 0px rgba(0,0,0,0.1);
+                transition: all 0.5s;
+                opacity: 0;
+                transform: translateY(10px);
                 &:last-of-type{
                     margin-right: 0;
                 }
@@ -581,9 +637,9 @@ export default {
                         top: 0;
                         position: absolute;
                         transition: all 0.5s;
-                        &:hover{
-                            transform: scale(1.1);
-                        }
+                        // &:hover{
+                        //     transform: scale(1.1);
+                        // }
                     }
                     >span{
                         text-align: center;
@@ -609,6 +665,12 @@ export default {
                         background-color: #D5D5D5;
                         display: inline-block;
                     }
+                }
+            }
+            &.active {
+                li {
+                    opacity: 1;
+                    transform: translateY(0);
                 }
             }
         }
@@ -653,11 +715,18 @@ export default {
                         width: 100%;
                         height: 357px;
                         position: relative;
+                        overflow: hidden;
+                        &:hover{
+                            >img{
+                                transform: scale(1.1)
+                            }
+                        }
 
                         img{
                             width: 100%;
                             height: 100%;
                             position: absolute;
+                            transition: all 0.5s;
                         }
                         >div {
                             width: 100%;

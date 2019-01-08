@@ -58,7 +58,7 @@
                             </ul>
                         </div>
                         <div class="rigth">
-                            <img src="" alt="">
+                            <img :src="nav_bottomData.qrcode" alt="">
                         </div>
                     </div>
                     <div class="bottom">
