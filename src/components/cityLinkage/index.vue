@@ -155,6 +155,7 @@
 
                         this.selectList[0] = this.province[index2].value
                         this.selectList[1] = this.province[index2].children[0].value;
+                        this.selectList[2] = this.province[index2].children[0].children[0].value;
                         this.$emit("selectChange",this.selectList);
                     }
                 }
@@ -167,15 +168,21 @@
                         this.qu = this.city[index3].children[0].value
                         this.E = this.qu1[0].id
                         // console.log(this.E)
-
                         this.selectList[1] = this.city[index3].value;
+                        this.selectList[2] = this.city[index3].children[0].value
                         this.$emit("selectChange",this.selectList);
                     }
                 }
             },
             // 选区
             choseBlock: function (e) {
+                for(var index4 in this.block) {
+                    if (e === this.block[index4].id) {
+                        this.selectList[2] = this.block[index4].value
+                    }
+                }
                 this.E = e;
+                this.$emit("selectChange",this.selectList);
             },
         },
         created: function () {

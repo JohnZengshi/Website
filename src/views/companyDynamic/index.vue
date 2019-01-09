@@ -52,7 +52,7 @@ export default {
         this.paperScrollTop = this.$parent.paperScrollTop;
         ;(async()=>{
             let getCompany_dynamicRES = await getCompany_dynamic({
-                store_no: 1458745225
+                store_no: this.GlobalData.store_no
             });
             if(getCompany_dynamicRES.errCode == 0){
                 this.getCompany_dynamicRES_DATA = getCompany_dynamicRES.data;

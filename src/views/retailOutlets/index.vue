@@ -78,7 +78,7 @@
                 ;(async()=>{
                     let regionId = await this.getRegion(this.selectCity);
                     let getRetailerRES = await getRetailer({
-                        store_no: 1458745225,
+                        store_no: this.GlobalData.store_no,
                         region_id: regionId,
                     });
                     if(getRetailerRES.errCode == 0){
@@ -98,7 +98,7 @@
                         if (item) {
                             cityRegion_id.push(item.id);
                             let getRegionRES = await getRegion({
-                                store_no: 1458745225,
+                                store_no: this.GlobalData.store_no,
                                 id: item.id
                             });
                             if (getRegionRES.errCode == 0) {
@@ -115,7 +115,7 @@
             this.paperScrollTop = this.$parent.paperScrollTop;
             ;(async()=>{
                 let getRegionRES = await getRegion({
-                   store_no: 1458745225,
+                   store_no: this.GlobalData.store_no,
                    id: "1"
                });
                if(getRegionRES.errCode == 0){

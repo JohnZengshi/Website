@@ -117,7 +117,7 @@
            ;
            (async () => {
                let getNav_topRES = await getNav_top({
-                   store_no: 1458745225
+                   store_no: this.GlobalData.store_no
                });
                if (getNav_topRES.errCode == 0) {
                    this.getNav_topRES_DATA = getNav_topRES.data;
@@ -126,7 +126,7 @@
            ;
            (async () => {
                let getNav_bottomRES = await getNav_bottom({
-                   store_no: 1458745225
+                   store_no: this.GlobalData.store_no
                })
                if (getNav_bottomRES.errCode == 0) {
                    this.nav_bottomData = getNav_bottomRES.data
@@ -152,7 +152,7 @@
             background: rgba(255, 255, 255, 1);
             position: fixed;
             top: 0;
-            z-index: 999;
+            z-index: 2001;
             transition: all 0.5s;
 
             &.topTabChange {

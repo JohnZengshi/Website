@@ -23,6 +23,18 @@ const getRegion = (params) => { //公司动态
 const getRetailer = (params) => { //公司动态
     return postRequest(`/web/getRetailer/`,params)
 }
+const applyStepOne = (params) => { //用户注册
+    return postRequest(`/web/applyStepOne/`,params)
+}
+const sendCode = (params) => { //发送短信
+    return postRequest(`/web/sendCode/`,params)
+}
+const applyStepTwo = (params) => { //发送短信
+    return postRequest(`/web/applyStepTwo/`,params)
+}
+const uploadImg = (params) => { //图片上传
+    return postRequest(`/upload/upload`,params)
+}
 export {
     getNav_top,
     getTopNews,
@@ -30,5 +42,9 @@ export {
     getNav_bottom,
     getCompany_dynamic,
     getRegion,
-    getRetailer
+    getRetailer,
+    applyStepOne,
+    sendCode,
+    applyStepTwo,
+    uploadImg
 }

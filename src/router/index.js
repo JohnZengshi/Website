@@ -16,9 +16,9 @@ export default new Router({
         path: "/",
         name: "首页",
         component: HomePage,
-        props: {
-            newsletterPopup: false
-        }
+        props: (route) => ({
+            query: route.query.q
+        })
     }, {
         path: "/ServiceChannels",
         name: "渠道服务",
@@ -35,12 +35,12 @@ export default new Router({
             path: 'Register',
             name: "渠道入驻",
             component: Register
-        },{
+        }, {
             path: 'FillInformation',
             name: "FillInformation",
             component: FillInformation
         }]
-    },{
+    }, {
         path: "/RetailOutlets",
         name: "零售网点",
         component: RetailOutlets,

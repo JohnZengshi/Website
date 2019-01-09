@@ -381,8 +381,8 @@ export default {
         },1000);
 
         ;(async()=>{
-            let getTopNewsRES = await getTopNews({store_no:1458745225});
-            let getBannerRES = await getBanner({store_no:1458745225});
+            let getTopNewsRES = await getTopNews({store_no:this.GlobalData.store_no});
+            let getBannerRES = await getBanner({store_no:this.GlobalData.store_no});
             this.bannerList = getBannerRES.data;
             this.getTopNewsRES_DATA = getTopNewsRES.data;
 
