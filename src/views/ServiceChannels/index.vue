@@ -250,7 +250,7 @@ export default {
 <style lang="less" scoped>
 .ServiceChannels {
     .ContentTitle {
-        height: 50px;
+        // height: 50px;
         position: relative;
         margin-top: 63px;
 
@@ -281,7 +281,7 @@ export default {
 
             &:nth-of-type(3) {
                 transform: translate3d(0px,0px,0px);
-                display: inline-grid;
+                display: table;
                 width: 79px;
                 height: 2px;
                 background-color: #fff;

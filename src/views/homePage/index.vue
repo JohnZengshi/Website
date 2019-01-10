@@ -1,55 +1,64 @@
 <template>
     <div class="HomePage">
-        <div class="banner">
-            <swiper class="swiperConent" :options="swiperOption" ref="mySwiper">
-                <swiper-slide
-                    :key="index"
-                    v-for="(item,index) in bannerList">
-                    <img :src="item.img_url" alt="">
-                </swiper-slide>
-                <div class="swiper-pagination"  slot="pagination"></div>
-            </swiper>
-        </div>
-        <div class="content_01 display_flex justify-content_flex-center">
-            <div class="left display_flex flex-direction_column">
-                <div 
-                    :class="{active:content_01_titleActive}"
-                    class="display_flex flex-direction_column">
-                    <span>快速</span>
-                    <span>微妙识别解锁只需0.3秒</span>
-                </div>
-                <span>指纹锁采用微妙指纹识别芯片，指纹识别速度仅需0.3秒，芯片所具有的自主学习功能，不同角度的指纹输入都能够自动修正并识别</span>
-                <ul class="display_flex align-items_center justify-content_flex-justify justify-content_flex-center">
-                    <li class="display_flex flex-direction_column align-items_center pointer">
-                        <img 
-                            :class="{active:content_01_listActive}"
-                            src="../../../static/images/homePage/chip-icon.png" alt="">
-                        <span
-                            :class="{active:content_01_listActive}"
-                            >微秒指纹识别芯片</span>
-                    </li>
-                    <li class="line"></li>
-                    <li class="display_flex flex-direction_column align-items_center pointer">
-                        <img 
-                            :class="{active:content_01_listActive}"
-                            src="../../../static/images/homePage/FingerprintIdentification-icon.png" alt="">
-                        <span
-                            :class="{active:content_01_listActive}"
-                            >指纹识别</span>
-                    </li>
-                    <li class="line"></li>
-                    <li class="display_flex flex-direction_column align-items_center pointer">
-                        <img 
-                            :class="{active:content_01_listActive}"
-                            src="../../../static/images/homePage/SpeedFast-icon.png" alt="">
-                        <span
-                            :class="{active:content_01_listActive}"
-                            >指纹识别速度0.3秒</span>
-                    </li>
-                </ul>
+        <div class="banner_content_01">
+            <div class="RESEARCH">
+                <RESEARCH></RESEARCH>
             </div>
-            <div class="rigth">
-                <img src="../../../static/images/homePage/BlackDoorLock.png" alt="">
+            <div class="content display_flex flex-direction_column align-items_center">
+                <div class="banner">
+                    <swiper class="swiperConent" :options="swiperOption" ref="mySwiper">
+                        <swiper-slide
+                            :key="index"
+                            v-for="(item,index) in bannerList">
+                            <img :src="item.img_url" alt="">
+                        </swiper-slide>
+                        <div class="swiper-pagination"  slot="pagination"></div>
+                    </swiper>
+                </div>
+                <div class="content_01">
+                    <div class="content display_flex justify-content_flex-center">
+                        <div class="left display_flex flex-direction_column">
+                            <div 
+                                :class="{active:content_01_titleActive}"
+                                class="display_flex flex-direction_column">
+                                <span>快速</span>
+                                <span>微妙识别解锁只需0.3秒</span>
+                            </div>
+                            <span>指纹锁采用微妙指纹识别芯片，指纹识别速度仅需0.3秒，芯片所具有的自主学习功能，不同角度的指纹输入都能够自动修正并识别</span>
+                            <ul class="display_flex align-items_center justify-content_flex-justify justify-content_flex-center">
+                                <li class="display_flex flex-direction_column align-items_center pointer">
+                                    <img 
+                                        :class="{active:content_01_listActive}"
+                                        src="../../../static/images/homePage/chip-icon.png" alt="">
+                                    <span
+                                        :class="{active:content_01_listActive}"
+                                        >微秒指纹识别芯片</span>
+                                </li>
+                                <li class="line"></li>
+                                <li class="display_flex flex-direction_column align-items_center pointer">
+                                    <img 
+                                        :class="{active:content_01_listActive}"
+                                        src="../../../static/images/homePage/FingerprintIdentification-icon.png" alt="">
+                                    <span
+                                        :class="{active:content_01_listActive}"
+                                        >指纹识别</span>
+                                </li>
+                                <li class="line"></li>
+                                <li class="display_flex flex-direction_column align-items_center pointer">
+                                    <img 
+                                        :class="{active:content_01_listActive}"
+                                        src="../../../static/images/homePage/SpeedFast-icon.png" alt="">
+                                    <span
+                                        :class="{active:content_01_listActive}"
+                                        >指纹识别速度0.3秒</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="rigth">
+                            <img src="../../../static/images/homePage/BlackDoorLock.png" alt="">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="countNum">
@@ -99,44 +108,64 @@
                 <span class="title">开启智能新生活</span>
                 <span class="line"></span>
                 <ul>
-                    <li class="display_flex flex-direction_column align-items_center">
-                        <img src="../../../static/images/homePage/PasswordOpen-icon.png" alt="">
+                    <li  class="display_flex flex-direction_column align-items_center pointer">
+                        <shockwave>
+                            <img slot="shockwaveSlot" src="../../../static/images/homePage/PasswordOpen-icon.png" alt="">
+                        </shockwave>
                         <span>密码开启</span>
-                    </li>
-                    <li class="display_flex flex-direction_column align-items_center">
-                        <img src="../../../static/images/homePage/appLock-icon.png" alt="">
+                    </li>   
+                    <li class="display_flex flex-direction_column align-items_center pointer">
+                        <shockwave>
+                            <img slot="shockwaveSlot" src="../../../static/images/homePage/appLock-icon.png" alt="">
+                        </shockwave>
                         <span>APP开锁</span>
                     </li>
-                    <li class="display_flex flex-direction_column align-items_center">
-                        <img src="../../../static/images/homePage/PasswordProtection-icon.png" alt="">
+                    <li class="display_flex flex-direction_column align-items_center pointer">
+                        <shockwave>
+                            <img slot="shockwaveSlot" src="../../../static/images/homePage/PasswordProtection-icon.png" alt="">
+                        </shockwave>
                         <span>密码保护</span>
                     </li>
-                    <li class="display_flex flex-direction_column align-items_center">
-                        <img src="../../../static/images/homePage/LowPressureAlarm-icon.png" alt="">
+                    <li class="display_flex flex-direction_column align-items_center pointer">
+                        <shockwave>
+                            <img slot="shockwaveSlot" src="../../../static/images/homePage/LowPressureAlarm-icon.png" alt="">
+                        </shockwave>
                         <span>低压报警</span>
                     </li>
-                    <li class="display_flex flex-direction_column align-items_center">
-                        <img src="../../../static/images/homePage/ClassCLock-icon.png" alt="">
+                    <li class="display_flex flex-direction_column align-items_center pointer">
+                        <shockwave>
+                            <img slot="shockwaveSlot" src="../../../static/images/homePage/ClassCLock-icon.png" alt="">
+                        </shockwave>
                         <span>C级锁芯</span>
                     </li>
-                    <li class="display_flex flex-direction_column align-items_center">
-                        <img src="../../../static/images/homePage/FingerprintOpen-icon.png" alt="">
+                    <li class="display_flex flex-direction_column align-items_center pointer">
+                        <shockwave>
+                            <img slot="shockwaveSlot" src="../../../static/images/homePage/FingerprintOpen-icon.png" alt="">
+                        </shockwave>
                         <span>指纹开启</span>
                     </li>
-                    <li class="display_flex flex-direction_column align-items_center">
-                        <img src="../../../static/images/homePage/CreditCardLock-icon.png" alt="">
+                    <li class="display_flex flex-direction_column align-items_center pointer">
+                        <shockwave>
+                            <img slot="shockwaveSlot" src="../../../static/images/homePage/CreditCardLock-icon.png" alt="">
+                        </shockwave>
                         <span>刷卡开锁</span>
                     </li>
-                    <li class="display_flex flex-direction_column align-items_center">
-                        <img src="../../../static/images/homePage/keyToOpen-icon.png" alt="">
+                    <li class="display_flex flex-direction_column align-items_center pointer">
+                        <shockwave>
+                            <img slot="shockwaveSlot" src="../../../static/images/homePage/keyToOpen-icon.png" alt="">
+                        </shockwave>
                         <span>钥匙开启</span>
                     </li>
-                    <li class="display_flex flex-direction_column align-items_center">
-                        <img src="../../../static/images/homePage/SuperLockBody-icon.png" alt="">
+                    <li class="display_flex flex-direction_column align-items_center pointer">
+                        <shockwave>
+                            <img slot="shockwaveSlot" src="../../../static/images/homePage/SuperLockBody-icon.png" alt="">
+                        </shockwave>
                         <span>超强锁体</span>
                     </li>
-                    <li class="display_flex flex-direction_column align-items_center">
-                        <img src="../../../static/images/homePage/LiquidCrystalDisplay-icon.png" alt="">
+                    <li class="display_flex flex-direction_column align-items_center pointer">
+                        <shockwave>
+                            <img slot="shockwaveSlot" src="../../../static/images/homePage/LiquidCrystalDisplay-icon.png" alt="">
+                        </shockwave>
                         <span>液晶显示屏</span>
                     </li>
                 </ul>
@@ -206,7 +235,7 @@
                 </li>
             </ul>
             <img 
-                :style="{top:content_03_img_top + 'px'}"
+                :style="{transform : 'translateY(' + content_03_img_top + 'px)'}"
                 src="../../../static/images/homePage/content_03_back.png" alt="">
         </div>
         <div class="content_04">
@@ -217,7 +246,9 @@
                 <ul class="display_flex">
                     <li class="display_flex flex-direction_column align-items_center pointer">
                         <div class="top">
-                            <img src="../../../static/images/homePage/亲友来访-bg.png" alt="">
+                            <img 
+                                :class="{active:content_04_top_imgActive}"
+                                src="../../../static/images/homePage/亲友来访-bg.png" alt="">
                             <div class="display_flex flex-direction_column align-items_center justify-content_flex-center">
                                 <span>亲友来访</span>
                                 <span>远程开门</span>
@@ -229,7 +260,9 @@
                     </li>
                     <li class="display_flex flex-direction_column align-items_center pointer">
                         <div class="top display_flex flex-direction_column align-items_center justify-content_flex-center">
-                            <img src="../../../static/images/homePage/关爱家人-bg.png" alt="">
+                            <img 
+                                :class="{active:content_04_top_imgActive}"
+                                src="../../../static/images/homePage/关爱家人-bg.png" alt="">
                             <div class="display_flex flex-direction_column align-items_center justify-content_flex-center">
                                 <span>关爱家人</span>
                                 <span>实时推送</span>
@@ -242,7 +275,9 @@
                     </li>
                     <li class="display_flex flex-direction_column align-items_center pointer">
                         <div class="top display_flex flex-direction_column align-items_center justify-content_flex-center">
-                            <img src="../../../static/images/homePage/多种警示-bg.png" alt="">
+                            <img 
+                                :class="{active:content_04_top_imgActive}"
+                                src="../../../static/images/homePage/多种警示-bg.png" alt="">
                             <div class="display_flex flex-direction_column align-items_center justify-content_flex-center">
                                 <span>多种警示</span>
                                 <span>立即提醒</span>
@@ -254,7 +289,9 @@
                     </li>
                     <li class="display_flex flex-direction_column align-items_center pointer">
                         <div class="top display_flex flex-direction_column align-items_center justify-content_flex-center">
-                            <img src="../../../static/images/homePage/紧急救护-bg.png" alt="">
+                            <img 
+                                :class="{active:content_04_top_imgActive}"
+                                src="../../../static/images/homePage/紧急救护-bg.png" alt="">
                             <div class="display_flex flex-direction_column align-items_center justify-content_flex-center">
                                 <span>紧急救护</span>
                                 <span>分秒必争</span>
@@ -266,7 +303,9 @@
                     </li>
                     <li class="display_flex flex-direction_column align-items_center pointer">
                         <div class="top display_flex flex-direction_column align-items_center justify-content_flex-center">
-                            <img src="../../../static/images/homePage/预设险警-bg.png" alt="">
+                            <img 
+                                :class="{active:content_04_top_imgActive}"
+                                src="../../../static/images/homePage/预设险警-bg.png" alt="">
                             <div class="display_flex flex-direction_column align-items_center justify-content_flex-center">
                                 <span>预设险警</span>
                                 <span>确保安全</span>
@@ -299,8 +338,9 @@
     </div>
 </template>
 <script>
-// import countTo from 'vue-count-to';
 import NumberGrow from "../../components/numberGrow";
+import RESEARCH from "../../components/RESEARCH";
+import shockwave from "../../components/shockwave";
 import {getTopNews,getBanner} from "../../network/api";
 export default {
     name: "HomePage",
@@ -322,12 +362,14 @@ export default {
             getTopNewsRES_DATA: [],
             bannerList: [],
             content_03_img_top: 0,
+            content_04_top_imgActive: false,
             numberGrowIng: false,
         }
     },
     components:{
-        // countTo,
-        NumberGrow
+        NumberGrow,
+        RESEARCH,
+        shockwave
     },
     computed: {
         newsList() {
@@ -344,22 +386,27 @@ export default {
         },
     },
     watch:{
-        paperScrollTop:function(val){
+        paperScrollTop: function (val) {
             if (val >= 200) {
                 this.content_01_listActive = true;
                 if (val >= 1500) {
                     this.content_03_img_top = -(val / 10);
                     if (val >= 1800) {
                         this.content_03_listActive = true;
-                        if (val >= 3000) {
-                            this.content_03_img_top = 0;
+                        if (val >= 2600) {
+                            this.content_04_top_imgActive = true;
+                            if (val >= 3000) {
+                                // this.content_03_img_top = 0;
+
+                            }
                         }
+
                     }
                 }
             }
 
             if (val >= 600 && val <= 1400) {
-                if(this.numberGrowIng) return ;
+                if (this.numberGrowIng) return;
                 this.numberGrowIng = true;
                 this.$refs['NumberGrow_01'].start();
                 this.$refs['NumberGrow_02'].start();
@@ -393,101 +440,146 @@ export default {
 
 <style lang="less" scoped>
 .HomePage{
-    .banner{
-        width: 100%;
-        .swiperConent{
-            margin: 0 auto;
-            width: 1252px;
-            height:480px;
-            overflow: hidden;
-        }
-        img{
+    .banner_content_01 {
+        position: relative;
+        height: 1280px;
+        overflow: hidden;
+        >.RESEARCH {
+            position: absolute;
+            top: 0;
+            right: 0;
             width: 100%;
             height: 100%;
         }
-    }
-    .content_01{
-        height: 800px;
-        >.left{
-            width: 640px;
-            margin-top: 164px;
-            margin-right: 119px;
-            >div{
-                >span{
-                    font-size:60px;
-                    font-family:PingFangSC-Semibold;
-                    font-weight:600;
-                    color:rgba(77,61,51,1);
-                    line-height:84px;
+
+        >.content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 3;
+            width: 100%;
+            height: 100%;
+            .banner {
+                .swiperConent {
+                    margin: 0 auto;
+                    width: 1252px;
+                    height: 480px;
+                    overflow: hidden;
                 }
-                opacity: 0;
-                transform: translateY(10px);
-                transition: all 0.5s;
-                &.active{
-                    opacity: 1;
-                    transform: translateY(0)
+
+                img {
+                    width: 100%;
+                    height: 100%;
                 }
             }
-            >span{
-                margin-top: 29px;
-                font-size:18px;
-                font-family:PingFangSC-Regular;
-                font-weight:400;
-                color:rgba(77,61,51,1);
-            }
-            >ul{
-                margin-top: 77px;
-                li{
-                    >img{
-                        width: 78px;
-                        height: 78px;
-                        transform: scale(2);
-                        opacity: 0;
-                        transition: all 0.5s;
-                        &.active{
-                            transform: scale(1);
-                            opacity: 1;
+
+            .content_01 {
+                height: 800px;
+                position: relative;
+
+                >.content {
+                    width: 100%;
+                    height: 100%;
+
+                    >.left {
+                        width: 640px;
+                        margin-top: 164px;
+                        margin-right: 119px;
+
+                        >div {
+                            >span {
+                                font-size: 60px;
+                                font-family: PingFangSC-Semibold;
+                                font-weight: 600;
+                                color: rgba(77, 61, 51, 1);
+                                line-height: 84px;
+                            }
+
+                            opacity: 0;
+                            transform: translateY(10px);
+                            transition: all 0.5s;
+
+                            &.active {
+                                opacity: 1;
+                                transform: translateY(0)
+                            }
                         }
-                        &:hover{
-                            transform: scale(1.2)
+
+                        >span {
+                            margin-top: 29px;
+                            font-size: 18px;
+                            font-family: PingFangSC-Regular;
+                            font-weight: 400;
+                            color: rgba(77, 61, 51, 1);
+                        }
+
+                        >ul {
+                            margin-top: 77px;
+
+                            li {
+                                >img {
+                                    width: 78px;
+                                    height: 78px;
+                                    transform: scale(2);
+                                    opacity: 0;
+                                    transition: all 0.5s;
+
+                                    &.active {
+                                        transform: scale(1);
+                                        opacity: 1;
+                                    }
+
+                                    &:hover {
+                                        transform: scale(1.2)
+                                    }
+                                }
+
+                                >span {
+                                    margin-top: 7px;
+                                    font-size: 14px;
+                                    font-family: PingFangSC-Regular;
+                                    font-weight: 400;
+                                    color: rgba(51, 51, 51, 1);
+                                    transition: all 0.5s;
+                                    opacity: 0;
+
+                                    &.active {
+                                        opacity: 1;
+                                    }
+                                }
+
+                                &.line {
+                                    width: 1px;
+                                    height: 70px;
+                                    background: rgba(216, 216, 216, 1);
+                                }
+                            }
                         }
                     }
-                    >span{
-                        margin-top: 7px;
-                        font-size:14px;
-                        font-family:PingFangSC-Regular;
-                        font-weight:400;
-                        color:rgba(51,51,51,1);
-                        transition: all 0.5s;
-                        opacity: 0;
-                        &.active{
-                            opacity: 1;
+
+                    >.rigth {
+                        @keyframes imgMove {
+                            0% {
+                                transform: translateY(-20px)
+                            }
+
+                            50% {
+                                transform: translateY(20px)
+                            }
+
+                            100% {
+                                transform: translateY(-20px)
+                            }
                         }
-                    }
-                    &.line{
-                        width:1px;
-                        height:70px;
-                        background:rgba(216,216,216,1);
+
+                        animation: imgMove 5s linear infinite;
+                        margin-top: 70px;
                     }
                 }
             }
         }
-        >.rigth{
-            @keyframes imgMove {
-                0% {
-                    transform: translateY(-20px)
-                }
-                50% {
-                    transform: translateY(20px)
-                }
-                100% {
-                    transform: translateY(-20px)
-                }
-            }
-            animation: imgMove 5s linear infinite;
-            margin-top: 70px;
-        }
     }
+    
     .countNum{
         height: 200px;
         background:rgba(30,163,255,1);
@@ -602,6 +694,7 @@ export default {
             height: 200%;
             position: absolute;
             transition: all 0.5s;
+            transform: translateY(0);
             top: 0;
             right: 0;
             z-index: 1;
@@ -727,11 +820,19 @@ export default {
                             height: 100%;
                             position: absolute;
                             transition: all 0.5s;
+                            top: 0;
+                            left: 0;
+                            transform: scale(1.2);
+                            // &.active{
+                            //     transform:scale(1);
+                            // }
                         }
                         >div {
                             width: 100%;
                             height: 100%;
                             position: absolute;
+                            top: 0;
+                            left: 0;
                             span {
                                 font-size: 26px;
                                 font-family: PingFangSC-Semibold;
@@ -800,6 +901,9 @@ export default {
                     // background-color: #D5D5D5;
                 }
                 >.title{
+                    display: inline-block;
+                    width: 100%;
+                    box-sizing: border-box;
                     padding: 0 28px;
                     margin-top: 25px;
                     font-size:18px;
