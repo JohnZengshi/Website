@@ -73,6 +73,7 @@
                 <el-form-item label="详细地址" label-width="100px">
                     <div>
                         <CityLinkage
+                            :initData="retailersFormData.initCityList"
                             @selectChange="selectChange"></CityLinkage>
                         <el-input class="detailAdress" v-model="retailersFormData.detailAdress"></el-input>
                     </div>
@@ -163,6 +164,7 @@
                 <el-form-item label="负责区域" label-width="100px">
                     <div>
                         <CityLinkage 
+                            :initData="facilitatorFormData.initCityList"
                             @selectChange="selectChange"
                             :hiddenRegion="true"></CityLinkage>
                     </div>
@@ -253,6 +255,7 @@
                 <el-form-item label="负责区域" label-width="100px">
                     <div>
                         <CityLinkage 
+                            :initData="distributorsFormData.initCityList"
                             @selectChange="selectChange"
                             :hiddenRegion="true"></CityLinkage>
                     </div>
@@ -264,7 +267,7 @@
 </template>
 <script>
     import CityLinkage from "../../../components/cityLinkage";
-    import {getRegion,applyStepTwo} from "../../../network/api";
+    import {getRegion,applyStepTwo,getStoreInfo} from "../../../network/api";
     import {$message} from "../../../utils/elmApi";
     export default {
         name: "fillInformation",
@@ -280,6 +283,7 @@
                     idcard_font_img: "",
                     idcard_back_img: "",
                     signing_contract_img: "",
+                    initCityList:[],
                 },
                 distributorsFormData: { //渠道商
                     businessName: "",
@@ -290,6 +294,7 @@
                     license_img: "",
                     signing_contract_img: "",
                     group_photo: "",
+                    initCityList: [],
                 },
                 facilitatorFormData: { //服务商
                     businessName: "",
@@ -300,6 +305,7 @@
                     license_img: "",
                     signing_contract_img: "",
                     group_photo: "",
+                    initCityList: [],
                 },
                 retailersFormRules: {
                     businessName: [{
@@ -524,6 +530,51 @@
                }
             })()
             this.user_id = this.$route.query.user_id;
+            ;(async()=>{
+                let getStoreInfoRES = await getStoreInfo({user_id:this.user_id});
+                if(getStoreInfoRES.errCode == 0){ //回填数据
+                    let userData = getStoreInfoRES.data;
+                    if(userData.type == 2){ //渠道商
+                        this.businessType = '3';
+                        this.$set(this.distributorsFormData,'businessName',userData.name);
+                        this.$set(this.distributorsFormData,'connetName',userData.user_name);
+                        this.$set(this.distributorsFormData,'marginAmount',userData.security_money);
+                        this.$set(this.distributorsFormData,'idcard_font_img',userData.idcard_font_img);
+                        this.$set(this.distributorsFormData,'idcard_back_img',userData.idcard_back_img);
+                        this.$set(this.distributorsFormData,'license_img',userData.license_img);
+                        this.$set(this.distributorsFormData,'signing_contract_img',userData.signing_contract_img);
+                        this.$set(this.distributorsFormData,'group_photo',userData.group_photo);
+                        this.$set(this.distributorsFormData,'initCityList',(userData.region_name).split(","));
+                        this.selectCity = (userData.region_name).split(",");
+                    }else if(userData.type == 3){ //零售商
+                        this.businessType = '1';
+                        this.$set(this.retailersFormData,"businessName",userData.name);
+                        this.$set(this.retailersFormData,"connetName",userData.user_name);
+                        this.$set(this.retailersFormData,"businessOrder",userData.channel_no);
+                        this.$set(this.retailersFormData,"sampleAmount",userData.sample_amount);
+                        this.$set(this.retailersFormData,"detailAdress",userData.address);
+                        this.$set(this.retailersFormData,"idcard_font_img",userData.idcard_font_img);
+                        this.$set(this.retailersFormData,"idcard_back_img",userData.idcard_back_img);
+                        this.$set(this.retailersFormData,"signing_contract_img",userData.signing_contract_img);
+                        this.$set(this.retailersFormData,'initCityList',(userData.region_name).split(","));
+                        this.selectCity = (userData.region_name).split(",");
+                    }else if(userData.type == 4){ //服务商
+                        this.businessType = '2';
+                        this.$set(this.facilitatorFormData,'businessName',userData.name);
+                        this.$set(this.facilitatorFormData,'connetName',userData.user_name);
+                        this.$set(this.facilitatorFormData,'marginAmount',userData.security_money);
+                        this.$set(this.facilitatorFormData,'idcard_font_img',userData.idcard_font_img);
+                        this.$set(this.facilitatorFormData,'idcard_back_img',userData.idcard_back_img);
+                        this.$set(this.facilitatorFormData,'license_img',userData.license_img);
+                        this.$set(this.facilitatorFormData,'signing_contract_img',userData.signing_contract_img);
+                        this.$set(this.facilitatorFormData,'group_photo',userData.group_photo);
+                        this.$set(this.facilitatorFormData,'initCityList',(userData.region_name).split(","));
+                        this.selectCity = (userData.region_name).split(",");
+                    }
+                }else{
+                    console.log("新商户")
+                }
+            })()
         }
     }
 </script>

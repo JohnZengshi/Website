@@ -31,6 +31,12 @@
                 default:()=>{
                     return false
                 }
+            },
+            initData: { //回填数据
+                type: Array,
+                default: () => {
+                    return []
+                }
             }
         },
         data() {
@@ -45,6 +51,13 @@
                 city: '',
                 block: '',
                 selectList:[]
+            }
+        },
+        watch:{
+            initData:function(val){
+                this.sheng = val[0];
+                this.shi = val[1];
+                this.qu = val[2];
             }
         },
         methods: {
@@ -155,7 +168,7 @@
 
                         this.selectList[0] = this.province[index2].value
                         this.selectList[1] = this.province[index2].children[0].value;
-                        this.selectList[2] = this.province[index2].children[0].children[0].value;
+                        if(!this.hiddenRegion) this.selectList[2] = this.province[index2].children[0].children[0].value;
                         this.$emit("selectChange",this.selectList);
                     }
                 }
@@ -169,7 +182,7 @@
                         this.E = this.qu1[0].id
                         // console.log(this.E)
                         this.selectList[1] = this.city[index3].value;
-                        this.selectList[2] = this.city[index3].children[0].value
+                        if(!this.hiddenRegion) this.selectList[2] = this.city[index3].children[0].value
                         this.$emit("selectChange",this.selectList);
                     }
                 }
@@ -187,6 +200,9 @@
         },
         created: function () {
             this.getCityData()
+        },
+        mounted(){
+            
         }
     }
 </script>

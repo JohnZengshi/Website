@@ -35,6 +35,9 @@ const applyStepTwo = (params) => { //发送短信
 const uploadImg = (params) => { //图片上传
     return postRequest(`/upload/upload`,params)
 }
+const getStoreInfo = (params) => { //查询商户信息
+    return postRequest(`/web/getStoreInfo`,params)
+}
 export {
     getNav_top,
     getTopNews,
@@ -46,5 +49,6 @@ export {
     applyStepOne,
     sendCode,
     applyStepTwo,
-    uploadImg
+    uploadImg,
+    getStoreInfo
 }
