@@ -136,6 +136,9 @@
                     if (circleExp < circleExpMin || circleExp > circleExpMax) circleExpSp *= -1;
                     circleExp += circleExpSp;
                 }
+                if(!document.getElementById('canvas') || !document.getElementById('canvasbg')){
+                    return;
+                }
                 var ctxfr = document.getElementById('canvas').getContext('2d');
                 var ctxbg = document.getElementById('canvasbg').getContext('2d');
 

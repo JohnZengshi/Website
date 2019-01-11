@@ -331,7 +331,7 @@
                     <span class="line"></span>
                     <span class="time">{{item.time}}</span>
                     <span class="content unilineText">{{item.content}}</span>
-                    <el-button class="btn" @click="toDetail(item.url)">详情</el-button>
+                    <el-button class="btn" @click="toDetail(item.id)">详情</el-button>
                 </li>
             </ul>
         </div>
@@ -380,6 +380,7 @@ export default {
                     time: `${val.update_time} 公司动态`,
                     content: val.summary,
                     url: val.url,
+                    id:val.id
                 }
             })
             return list
@@ -417,8 +418,9 @@ export default {
         },
     },
     methods:{
-        toDetail(url){
-            window.open(url);
+        toDetail(id){
+            // window.open(url);
+            this.$router.push({path:"/CompanyDynamic/NewsDetail",query:{newsId:id}})
         }
     },
     mounted(){

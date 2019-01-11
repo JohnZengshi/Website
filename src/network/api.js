@@ -38,6 +38,9 @@ const uploadImg = (params) => { //图片上传
 const getStoreInfo = (params) => { //查询商户信息
     return postRequest(`/web/getStoreInfo`,params)
 }
+const getNewsInfo = (params) => { //新闻详情
+    return postRequest(`/web/newsInfo`,params)
+}
 export {
     getNav_top,
     getTopNews,
@@ -50,5 +53,6 @@ export {
     sendCode,
     applyStepTwo,
     uploadImg,
-    getStoreInfo
+    getStoreInfo,
+    getNewsInfo
 }

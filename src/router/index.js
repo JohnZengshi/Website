@@ -8,25 +8,33 @@ const JoinInvestment = () => import('../views/joinInvestment/index.vue');
 const Register = () => import('../views/joinInvestment/views/register.vue');
 const FillInformation = () => import('../views/joinInvestment/views/fillInformation.vue');
 const RetailOutlets = () => import('../views/retailOutlets/index.vue');
+const CompanyDynamicIndex = () => import('../views/companyDynamic/views/index.vue');
+const NewsDetail = () => import('../views/companyDynamic/views/newsDetail/index.vue');
 Vue.use(Router);
 
 export default new Router({
-    // mode: 'history',
+    mode: 'history',
     routes: [{
         path: "/",
         name: "首页",
         component: HomePage,
-        props: (route) => ({
-            query: route.query.q
-        })
     }, {
         path: "/ServiceChannels",
         name: "渠道服务",
         component: ServiceChannels,
     }, {
         path: "/CompanyDynamic",
-        name: "公司动态",
+        name: "",
         component: CompanyDynamic,
+        children:[{
+            path: "",
+            name: "公司动态",
+            component: CompanyDynamicIndex,
+        },{
+            path: "NewsDetail",
+            name: "公司动态",
+            component: NewsDetail,
+        }]
     }, {
         path: "/JoinInvestment",
         name: "JoinInvestment",

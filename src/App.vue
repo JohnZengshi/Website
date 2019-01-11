@@ -1,11 +1,10 @@
 <template>
     <div id="app">
-        <!-- <el-scrollbar 
+        <el-scrollbar 
             v-scrollbar="paperScroll" 
             ref="wrapper" 
-            style="height: 100%"> -->
-            <!-- <BetterScroll> -->
-            <div class="AppContent" @scroll="paperScroll">
+            style="height: 100%">
+            <div class="AppContent">
                 <div 
                     :class="{topTabChange:topTabChange}"
                     class="topTab display_flex justify-content_flex-justify align-items_center">
@@ -67,8 +66,7 @@
                     </div>
                 </div>
             </div>
-            <!-- </BetterScroll> -->
-        <!-- </el-scrollbar>             -->
+        </el-scrollbar>            
     </div>
 </template>
 
@@ -91,7 +89,6 @@
         },
         watch: {
             $route: function (val) {
-                // console.log(val.name)
                 this.routerName = val.name;
             },
             paperScrollTop: function(val){
@@ -115,7 +112,8 @@
         },
         methods:{
             paperScroll(e){
-                this.paperScrollTop = e.target.scrollTop;
+                // this.paperScrollTop = e.target.scrollTop;
+                this.paperScrollTop = e.scrollTop;
             }
         },
         mounted(){

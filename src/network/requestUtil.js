@@ -36,7 +36,9 @@ axios.interceptors.response.use(data => {
     return Promise.resolve(err);
 })
 
-let base = '/api/interface';
+// let base = '/api/interface';
+// let base = 'http://zxjapi.zhidekan.me';
+let base = 'http://www.wanjiaan.com';
 
 export const postRequest = (url, params) => {
     return new Promise((resolve, reject) => {
