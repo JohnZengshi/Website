@@ -1,10 +1,11 @@
 <template>
     <div id="app">
-        <el-scrollbar 
+        <!-- <el-scrollbar 
             v-scrollbar="paperScroll" 
             ref="wrapper" 
-            style="height: 100%">
-            <div class="AppContent">
+            style="height: 100%"> -->
+            <!-- <BetterScroll> -->
+            <div class="AppContent" @scroll="paperScroll">
                 <div 
                     :class="{topTabChange:topTabChange}"
                     class="topTab display_flex justify-content_flex-justify align-items_center">
@@ -66,12 +67,13 @@
                     </div>
                 </div>
             </div>
-        </el-scrollbar>            
+            <!-- </BetterScroll> -->
+        <!-- </el-scrollbar>             -->
     </div>
 </template>
 
 <script>
-    import Bscroll from 'better-scroll';
+    import BetterScroll from './components/betterScroll';
     import {getNav_top,getNav_bottom} from "./network/api";
     export default {
         name: 'app',
@@ -83,6 +85,9 @@
                 nav_bottomData:{},
                 getNav_topRES_DATA: [],
             }
+        },
+        components:{
+            BetterScroll
         },
         watch: {
             $route: function (val) {
@@ -100,17 +105,17 @@
             }
         },
         computed:{
-            scroll(){
-                // return new Bscroll(this.$refs.wrapper);
-            },
+            // betterScroll(){
+            //     return new Bscroll(this.$refs.wrapper);
+            // },
             topTabList(){
                 let list = this.getNav_topRES_DATA;
                 return list;
             }
         },
         methods:{
-            paperScroll(val){
-                this.paperScrollTop = val.scrollTop;
+            paperScroll(e){
+                this.paperScrollTop = e.target.scrollTop;
             }
         },
         mounted(){
@@ -144,8 +149,9 @@
         min-width: 1300px;
         overflow-x: hidden;
         // min-height: 100%;
-        // height: 100%;
+        height: 100%;
         position: relative;
+        z-index: 2;
         .topTab {
             width: 100%;
             height: 70px;
@@ -203,15 +209,15 @@
             // height: 100%;
             // box-sizing: border-box;
             padding-top: 70px;
-            padding-bottom: 330px;
+            // padding-bottom: 330px;
         }
 
         .pageBottom {
             width: 100%;
             height: 330px;
             background: rgba(51, 51, 51, 1);
-            position: absolute;
-            bottom: 0;
+            // position: absolute;
+            // bottom: 0;
             .top {
                 width: 1253px;
 

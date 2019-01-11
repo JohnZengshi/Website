@@ -27,7 +27,7 @@
     "babel-plugin-transform-vue-jsx": "^3.7.0",
     "babel-polyfill": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
-    "better-scroll": "^1.13.3",
+    "better-scroll": "^1.13.4",
     "easyscroll": "^1.0.1",
     "element-ui": "^2.4.11",
     "normalize.css": "^8.0.1",
