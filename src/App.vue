@@ -17,7 +17,7 @@
                                 class="pointer"
                                 tag="li"
                                 :to="item.url"
-                                :class="{clicked:routerName == item.name}"
+                                :class="{clicked:routerUrlName == item.url}"
                                 >{{item.name}}</router-link>
                         </ul>
                         <a href="http://shop.smarlife.cn/">
@@ -41,12 +41,11 @@
                                     v-for="(item,index) in nav_bottomData.list"
                                     class="display_flex flex-direction_column">
                                     <span>{{item.name}}</span>
-                                    <router-link 
+                                    <a 
                                         :key="idx"
                                         class="pointer" 
-                                        tag="span" 
-                                        :to="i.url"
-                                        v-for="(i,idx) in item.sub">{{i.name}}</router-link>
+                                        :href="i.url"
+                                        v-for="(i,idx) in item.sub">{{i.name}}</a>
                                 </li>
 
                                 <li class="display_flex flex-direction_column">
@@ -78,6 +77,7 @@
         data() {
             return {
                 routerName: "HomePage",
+                routerUrlName: "/",
                 paperScrollTop: 0,
                 topTabChange: false,
                 nav_bottomData:{},
@@ -90,6 +90,7 @@
         watch: {
             $route: function (val) {
                 this.routerName = val.name;
+                this.routerUrlName = val.fullPath;
             },
             paperScrollTop: function(val){
                 // console.log(val)
@@ -245,6 +246,15 @@
                                     color: rgba(255, 255, 255, 1);
                                     line-height: 22px;
                                 }
+                            }
+
+                            >a {
+                                font-size: 14px;
+                                font-family: PingFangSC-Regular;
+                                font-weight: 400;
+                                color: rgba(255, 255, 255, 0.5);
+                                line-height: 20px;
+                                margin-bottom: 15px;
                             }
 
                             &:nth-of-type(3) {

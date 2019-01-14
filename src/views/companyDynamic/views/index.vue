@@ -108,7 +108,7 @@ export default {
         li {
             border-bottom: 1px solid #D8D8D8;
             margin-bottom: 30px;
-
+            width: 1054px;
             >img {
                 width: 330px;
                 height: 200px;

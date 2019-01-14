@@ -22,7 +22,7 @@
                                 :class="{active:content_01_titleActive}"
                                 class="display_flex flex-direction_column">
                                 <span>快速</span>
-                                <span>微妙识别解锁只需0.3秒</span>
+                                <span>微秒识别解锁只需0.3秒</span>
                             </div>
                             <span>指纹锁采用微妙指纹识别芯片，指纹识别速度仅需0.3秒，芯片所具有的自主学习功能，不同角度的指纹输入都能够自动修正并识别</span>
                             <ul class="display_flex align-items_center justify-content_flex-justify justify-content_flex-center">

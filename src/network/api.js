@@ -41,6 +41,9 @@ const getStoreInfo = (params) => { //查询商户信息
 const getNewsInfo = (params) => { //新闻详情
     return postRequest(`/web/newsInfo`,params)
 }
+const getPageInfo = (params) => { //页面详情
+    return postRequest(`/web/getPageInfo`,params)
+}
 export {
     getNav_top,
     getTopNews,
@@ -54,5 +57,6 @@ export {
     applyStepTwo,
     uploadImg,
     getStoreInfo,
-    getNewsInfo
+    getNewsInfo,
+    getPageInfo
 }
