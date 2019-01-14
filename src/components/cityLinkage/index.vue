@@ -37,6 +37,12 @@
                 default: () => {
                     return []
                 }
+            },
+            isAutoSelectNextRank: { //是否自动选择下一级
+                type: Boolean,
+                default: () => {
+                    return true
+                }
             }
         },
         data() {
@@ -161,14 +167,16 @@
                 for (var index2 in this.province) {
                     if (e === this.province[index2].id) {
                         this.shi1 = this.province[index2].children
-                        this.shi = this.province[index2].children[0].value
-                        this.qu1 = this.province[index2].children[0].children
-                        this.qu = this.province[index2].children[0].children[0].value
-                        this.E = this.qu1[0].id
-
                         this.selectList[0] = this.province[index2].value
-                        this.selectList[1] = this.province[index2].children[0].value;
-                        if(!this.hiddenRegion) this.selectList[2] = this.province[index2].children[0].children[0].value;
+                        if (this.isAutoSelectNextRank) { //是否自动选择下一级
+                            this.shi = this.province[index2].children[0].value
+                            this.qu1 = this.province[index2].children[0].children
+                            this.qu = this.province[index2].children[0].children[0].value
+                            this.E = this.qu1[0].id
+
+                            this.selectList[1] = this.province[index2].children[0].value;
+                            if (!this.hiddenRegion) this.selectList[2] = this.province[index2].children[0].children[0].value;
+                        }
                         this.$emit("selectChange",this.selectList);
                     }
                 }
@@ -178,11 +186,14 @@
                 for (var index3 in this.city) {
                     if (e === this.city[index3].id) {
                         this.qu1 = this.city[index3].children
-                        this.qu = this.city[index3].children[0].value
-                        this.E = this.qu1[0].id
-                        // console.log(this.E)
                         this.selectList[1] = this.city[index3].value;
-                        if(!this.hiddenRegion) this.selectList[2] = this.city[index3].children[0].value
+                        if (this.isAutoSelectNextRank) { //是否自动选择下一级
+                            this.qu = this.city[index3].children[0].value
+                            this.E = this.qu1[0].id
+                            // console.log(this.E)
+
+                            if (!this.hiddenRegion) this.selectList[2] = this.city[index3].children[0].value
+                        }
                         this.$emit("selectChange",this.selectList);
                     }
                 }

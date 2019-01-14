@@ -11,7 +11,8 @@
             <div class="left display_flex align-items_center">
                 <CityLinkage 
                     @selectChange="selectChange"
-                    :hiddenRegion="true"></CityLinkage>
+                    :hiddenRegion="true"
+                    :isAutoSelectNextRank="false"></CityLinkage>
                 <el-button @click="checkRetailOutlets">查询</el-button>
             </div>
             <div class="line"></div>
@@ -77,9 +78,18 @@
             checkRetailOutlets(){
                 ;(async()=>{
                     let regionId = await this.getRegion(this.selectCity);
+                    let region_type;
+                    if(this.selectCity.length == 1){
+                        region_type = 1
+                    }else if(this.selectCity.length == 2) {
+                        region_type = 2
+                    }else if(this.selectCity.length == 3){
+                        region_type = 3
+                    }
                     let getRetailerRES = await getRetailer({
                         store_no: this.GlobalData.store_no,
                         region_id: regionId,
+                        region_type,
                     });
                     if(getRetailerRES.errCode == 0){
                         this.getRetailerRES_DATA = getRetailerRES.data
