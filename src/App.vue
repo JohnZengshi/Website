@@ -8,7 +8,7 @@
                 <div 
                     :class="{topTabChange:topTabChange}"
                     class="topTab display_flex justify-content_flex-justify align-items_center">
-                    <img src="../static/images/zhixiangjia_LOGO.png" title="智享家" alt="">
+                    <img src="../static/images/智享家LOGO-蓝色.png" title="智享家" alt="">
                     <div class="tab display_flex align-items_center">
                         <ul class="display_flex align-items_center">
                             <router-link
@@ -164,6 +164,8 @@
             }
 
             >img {
+                width: 118px;
+                height: 44px;
                 margin-left: 334px;
             }
 

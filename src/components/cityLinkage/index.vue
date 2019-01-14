@@ -166,8 +166,7 @@
             choseProvince: function (e) {
                 for (var index2 in this.province) {
                     if (e === this.province[index2].id) {
-                        this.shi1 = this.province[index2].children
-                        this.selectList[0] = this.province[index2].value
+
                         if (this.isAutoSelectNextRank) { //是否自动选择下一级
                             this.shi = this.province[index2].children[0].value
                             this.qu1 = this.province[index2].children[0].children
@@ -176,7 +175,12 @@
 
                             this.selectList[1] = this.province[index2].children[0].value;
                             if (!this.hiddenRegion) this.selectList[2] = this.province[index2].children[0].children[0].value;
+                        }else{
+                            this.shi = "";
+                            this.selectList.pop();
                         }
+                        this.shi1 = this.province[index2].children
+                        this.selectList[0] = this.province[index2].value
                         this.$emit("selectChange",this.selectList);
                     }
                 }
@@ -185,15 +189,20 @@
             choseCity: function (e) {
                 for (var index3 in this.city) {
                     if (e === this.city[index3].id) {
-                        this.qu1 = this.city[index3].children
-                        this.selectList[1] = this.city[index3].value;
                         if (this.isAutoSelectNextRank) { //是否自动选择下一级
                             this.qu = this.city[index3].children[0].value
                             this.E = this.qu1[0].id
                             // console.log(this.E)
 
                             if (!this.hiddenRegion) this.selectList[2] = this.city[index3].children[0].value
+                        }else{
+                            this.qu = "";
+                            if (!this.hiddenRegion){
+                                this.selectList.pop();
+                            }
                         }
+                        this.qu1 = this.city[index3].children
+                        this.selectList[1] = this.city[index3].value;
                         this.$emit("selectChange",this.selectList);
                     }
                 }

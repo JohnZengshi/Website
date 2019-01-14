@@ -72,7 +72,7 @@
         },
         methods:{
             selectChange(val){
-                // console.log(val);
+                console.log(val);
                 this.selectCity = val;
             },
             checkRetailOutlets(){

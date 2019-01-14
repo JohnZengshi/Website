@@ -13,7 +13,7 @@ const NewsDetail = () => import('../views/companyDynamic/views/newsDetail/index.
 Vue.use(Router);
 
 export default new Router({
-    mode: 'history',
+    // mode: 'history',
     routes: [{
         path: "/",
         name: "首页",

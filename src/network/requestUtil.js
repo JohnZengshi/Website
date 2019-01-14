@@ -38,7 +38,8 @@ axios.interceptors.response.use(data => {
 
 // let base = '/api/interface';
 // let base = 'http://zxjapi.zhidekan.me';
-let base = 'http://www.wanjiaan.com';
+// let base = 'http://www.wanjiaan.com';
+let base = 'http://api.smarlife.cn'
 
 export const postRequest = (url, params) => {
     return new Promise((resolve, reject) => {
