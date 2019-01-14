@@ -20,7 +20,7 @@
                                 :class="{clicked:routerName == item.name}"
                                 >{{item.name}}</router-link>
                         </ul>
-                        <a href="http://zxjsj.zhidekan.me/">
+                        <a href="http://shop.smarlife.cn/">
                             <el-button type="primary" class="loginBtn">登录</el-button>
                         </a>
                         
