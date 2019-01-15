@@ -20,7 +20,7 @@
                 v-if="selectCity.length != 0"
                 class="rigth display_flex align-items_center">
                 <img src="../../../static/images/retailOutlets/地址-icon.png" alt="">
-                <span>{{selectCity.join(",")}} 附近共有{{daynamicList.length}}个零售网点</span>
+                <span>{{selectCityStr}} 附近共有{{daynamicList.length}}个零售网点</span>
             </div>
         </div>
         <div class="daynamicList">
@@ -50,7 +50,8 @@
                 paperScrollTop: 0,
                 getRetailerRES_DATA: [],
                 cityList:[],
-                selectCity:[]
+                selectCity:[],
+                selectCityStr: "",
             }
         },
         components:{
@@ -74,6 +75,7 @@
             selectChange(val){
                 console.log(val);
                 this.selectCity = val;
+                this.selectCityStr = val.join(",")
             },
             checkRetailOutlets(){
                 ;(async()=>{
