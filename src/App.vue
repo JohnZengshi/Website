@@ -1,98 +1,48 @@
 <template>
     <div id="app">
-        <el-scrollbar 
-            v-scrollbar="paperScroll" 
-            ref="wrapper" 
-            style="height: 100%">
-            <div class="AppContent">
-                <div 
-                    :class="{topTabChange:topTabChange}"
-                    class="topTab display_flex justify-content_flex-justify align-items_center">
-                    <img :src="nav_bottomData.logo" title="智享家" alt="">
-                    <div class="tab display_flex align-items_center">
-                        <ul class="display_flex align-items_center">
-                            <template
-                                v-for="(item,index) in topTabList">
-                                    <router-link
-                                        v-if="item.page_type == 0"
-                                        :key="index"
-                                        class="pointer"
-                                        tag="a"
-                                        :to="item.url"
-                                        :class="{clicked:routerUrlName == item.url}"
-                                        >{{item.name}}</router-link>
-                                    <a 
-                                        v-else-if="item.page_type == 1"
-                                        :href="item.url" 
-                                        target="_blank" 
-                                        rel="noopener noreferrer">{{item.name}}</a>
-                            </template>
-                        </ul>
-                        <a href="http://shop.smarlife.cn/">
-                            <el-button type="primary" class="loginBtn">登录</el-button>
-                        </a>
-                        
-                        <span class="line"></span>
-                    </div>
-                </div>
-                <div class="viewsMain">
-                    <transition name="slide-fade">
-                        <router-view :ref="routerName"></router-view>
-                    </transition>
-                </div>
-                <div class="pageBottom display_flex align-items_center flex-direction_column justify-content_flex-justify">
-                    <div class="top display_flex justify-content_flex-justify">
-                        <div class="left">
-                            <ul>
-                                <li 
+        <div class="AppContent">
+            <div 
+                :class="{topTabChange:topTabChange}"
+                class="topTab display_flex justify-content_flex-justify align-items_center">
+                <img :src="nav_bottomData.logo" title="智享家" alt="">
+                <div class="tab display_flex align-items_center">
+                    <ul class="display_flex align-items_center">
+                        <template
+                            v-for="(item,index) in topTabList">
+                                <router-link
+                                    v-if="item.page_type == 0"
                                     :key="index"
-                                    v-for="(item,index) in nav_bottomData.list"
-                                    class="display_flex flex-direction_column">
-                                    <span>{{item.name}}</span>
-                                    <template
-                                        v-for="(i,idx) in item.sub">
-                                        <router-link
-                                            v-if="i.page_type == 0"
-                                            :key="idx"
-                                            class="pointer"
-                                            tag="a"
-                                            :to="i.url"
-                                            >{{i.name}}</router-link>
-                                        <a 
-                                            v-else-if="i.page_type == 1"
-                                            :key="idx"
-                                            class="pointer" 
-                                            :href="i.url"
-                                            target="_blank"
-                                            >{{i.name}}</a>
-                                    </template>
-                                    
-                                </li>
-
-                                <li class="display_flex flex-direction_column">
-                                    <span>服务热线：</span>
-                                    <span>{{nav_bottomData.hot_line}}</span>
-                                    <span>地址：</span>
-                                    <span>{{nav_bottomData.address}}</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="rigth">
-                            <img :src="nav_bottomData.qrcode" alt="">
-                        </div>
-                    </div>
-                    <div class="bottom">
-                        {{nav_bottomData.copyright}}
-                    </div>
+                                    class="pointer"
+                                    tag="a"
+                                    :to="item.url"
+                                    :class="{clicked:routerUrlName == item.url}"
+                                    >{{item.name}}</router-link>
+                                <a 
+                                    v-else-if="item.page_type == 1"
+                                    :href="item.url" 
+                                    target="_blank" 
+                                    rel="noopener noreferrer">{{item.name}}</a>
+                        </template>
+                    </ul>
+                    <a href="http://shop.smarlife.cn/">
+                        <el-button type="primary" class="loginBtn">登录</el-button>
+                    </a>
+                    
+                    <span class="line"></span>
                 </div>
             </div>
-        </el-scrollbar>            
+            <div class="viewsMain">
+                <transition name="slide-fade">
+                    <router-view :ref="routerName"></router-view>
+                </transition>
+            </div>
+            
+        </div>
     </div>
 </template>
 
 <script>
-    import BetterScroll from './components/betterScroll';
-    import {getNav_top,getNav_bottom} from "./network/api";
+    import {getNav_top} from "./network/api";
     export default {
         name: 'app',
         data() {
@@ -106,7 +56,6 @@
             }
         },
         components:{
-            BetterScroll
         },
         watch: {
             $route: function (val) {
@@ -149,14 +98,6 @@
                }
            })()
            ;
-           (async () => {
-               let getNav_bottomRES = await getNav_bottom({
-                   store_no: this.GlobalData.store_no
-               })
-               if (getNav_bottomRES.errCode == 0) {
-                   this.nav_bottomData = getNav_bottomRES.data
-               }
-           })()
         }
     }
 </script>
@@ -167,9 +108,6 @@
     height: 100%;
     .AppContent {
         min-width: 1300px;
-        overflow-x: hidden;
-        overflow-y: hidden;
-        // min-height: 100%;
         height: 100%;
         position: relative;
         z-index: 2;
@@ -187,8 +125,8 @@
             }
 
             >img {
-                width: 40px;
-                // height: 44px;
+                // width: 40px;
+                height: 50px;
                 margin-left: 334px;
             }
 
@@ -229,91 +167,11 @@
         }
 
         .viewsMain {
-            // height: 100%;
-            // box-sizing: border-box;
+            height: 100%;
             padding-top: 70px;
-            // padding-bottom: 330px;
         }
 
-        .pageBottom {
-            width: 100%;
-            height: 330px;
-            background: rgba(51, 51, 51, 1);
-            // position: absolute;
-            // bottom: 0;
-            .top {
-                width: 1253px;
-
-                .left {
-                    margin-top: 74px;
-
-                    ul {
-                        li {
-                            float: left;
-                            margin-right: 220px;
-
-                            >span {
-                                font-size: 14px;
-                                font-family: PingFangSC-Regular;
-                                font-weight: 400;
-                                color: rgba(255, 255, 255, 0.5);
-                                line-height: 20px;
-                                margin-bottom: 15px;
-
-                                &:nth-of-type(1) {
-                                    margin-bottom: 30px;
-                                    font-size: 16px;
-                                    font-family: PingFangSC-Semibold;
-                                    font-weight: 600;
-                                    color: rgba(255, 255, 255, 1);
-                                    line-height: 22px;
-                                }
-                            }
-
-                            >a {
-                                font-size: 14px;
-                                font-family: PingFangSC-Regular;
-                                font-weight: 400;
-                                color: rgba(255, 255, 255, 0.5);
-                                line-height: 20px;
-                                margin-bottom: 15px;
-                            }
-
-                            &:nth-of-type(3) {
-                                >span {
-                                    &:nth-of-type(3) {
-                                        font-size: 16px;
-                                        font-weight: 600;
-                                        color: rgba(255, 255, 255, 1);
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-
-                .rigth {
-                    >img {
-                        display: inline-block;
-                        margin-top: 84px;
-                        width: 126px;
-                        height: 123px;
-                    }
-                }
-            }
-
-            .bottom {
-                width: 100%;
-                height: 43px;
-                border-top: 1px solid #979797;
-                line-height: 43px;
-                text-align: center;
-                font-size: 12px;
-                font-family: PingFangSC-Regular;
-                font-weight: 400;
-                color: rgba(255, 255, 255, 0.5);
-            }
-        }
+        
     }
 
 }

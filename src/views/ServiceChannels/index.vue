@@ -1,206 +1,213 @@
 <template>
-    <div class="ServiceChannels">
-        <div class="content_01">
-            <img src="../../../static/images/ServiceChannels/新型模式-bg.png" alt="">
-            <div class="content display_flex flex-direction_column align-items_center">
-                <div 
-                    :class="{titleActive:titleActive01}"
-                    class="ContentTitle display_flex flex-direction_column align-items_center">
-                    <span>新型模式</span>
-                    <span>The new model</span>
-                    <span></span>
-                </div>
-                <ul>
-                    <li class="display_flex flex-direction_column align-items_center">
-                        <img src="../../../static/images/ServiceChannels/库存-icon.png" alt="">
-                        <span class="line"></span>
-                        <span class="title">零库存</span>
-                        <span>零库存风险</span>
-                        <span>零压货风险</span>
-                        <span>中心仓库支持</span>
-                        <span>小投入大回报</span>
-                    </li>
-                    <li class="display_flex flex-direction_column align-items_center">
-                        <img src="../../../static/images/ServiceChannels/款项-icon.png" alt="">
-                        <span class="line"></span>
-                        <span class="title">款项随时回</span>
-                        <span>固定回款时间</span>
-                        <span>实时掌控市场</span>
-                        <span>针对性销售</span>
-                    </li>
-                    <li class="display_flex flex-direction_column align-items_center">
-                        <img src="../../../static/images/ServiceChannels/产品种类-icon.png" alt="">
-                        <span class="line"></span>
-                        <span class="title">产品种类丰富</span>
-                        <span>产品多样化</span>
-                        <span>竞争压力小</span>
-                        <span>发展潜力大</span>
-                    </li>
-                    <li class="display_flex flex-direction_column align-items_center">
-                        <img src="../../../static/images/ServiceChannels/管理-icon.png" alt="">
-                        <span class="line"></span>
-                        <span class="title">资讯化管理模式</span>
-                        <span>数据随时知</span>
-                        <span>信息回馈快</span>
-                        <span>沟通时效快</span>
-                        <span>掌控力度高</span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="content_02">
-            <div class="content display_flex flex-direction_column align-items_center">
-                <div 
-                    :class="{titleActive:titleActive02}"
-                    class="ContentTitle display_flex flex-direction_column align-items_center">
-                    <span>四大支持，无忧合作</span>
-                    <span>Four big support</span>
-                    <span></span>
-                </div>
-                <ul>
-                    <li class="display_flex flex-direction_column">
-                        <img src="../../../static/images/ServiceChannels/平台支持-icon.png" alt="">
-                        <span class="title">平台支持</span>
-                        <span class="content">产品目录、在线门店、客户导流、赋能支持、售后管理</span>
-                    </li>
-                    <li class="display_flex flex-direction_column">
-                        <img src="../../../static/images/ServiceChannels/落地支持-icon.png" alt="">
-                        <span class="title">落地支持</span>
-                        <span class="content">专业课程培训、专业技术支持、市场活动支持、营销物料支持、信息系统支持</span>
-                    </li>
-                    <li class="display_flex flex-direction_column">
-                        <img src="../../../static/images/ServiceChannels/品牌支持-icon.png" alt="">
-                        <span class="title">品牌支持</span>
-                        <span class="content">语音：专访+录制、视频：广告+直播、文字：新闻+软文、纸质：画册+海报、门店：装修+陈列</span>
-                    </li>
-                    <li class="display_flex flex-direction_column">
-                        <img src="../../../static/images/ServiceChannels/业务支持-icon.png" alt="">
-                        <span class="title">业务支持</span>
-                        <span class="content">区域市场保护、营销策略指导、营销激励政策、样板市场打造、成功案例分享</span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="content_03">
-            <div class="content display_flex flex-direction_column align-items_center">
-                <div 
-                    :class="{titleActive:titleActive03}"
-                    class="ContentTitle display_flex flex-direction_column align-items_center">
-                    <span>五大体系，助你成功</span>
-                    <span>The five systems</span>
-                    <span></span>
-                </div>
-                <div class="con display_flex justify-content_flex-center ">
-                    <div class="left">
-                        <img src="../../../static/images/ServiceChannels/荣誉-bg.png" alt="">
-                        <ul>
-                            <li class="display_flex flex-direction_column align-items_center">
-                                <div class="display_flex flex-direction_column justify-content_flex-center align-items_center">
-                                    <img src="../../../static/images/ServiceChannels/市场-icon.png" alt="">
-                                </div>
-                                <span>全面的市场体系</span>
-                            </li>
-                            <li class="display_flex flex-direction_column align-items_center">
-                                <div class="display_flex flex-direction_column justify-content_flex-center align-items_center">
-                                    <img src="../../../static/images/ServiceChannels/售后-icon.png" alt="">
-                                </div>
-                                <span>无忧的售后体系</span>
-                            </li>
-                            <li class="display_flex flex-direction_column align-items_center">
-                                <div class="display_flex flex-direction_column justify-content_flex-center align-items_center">
-                                    <img src="../../../static/images/ServiceChannels/合作-icon.png" alt="">
-                                </div>
-                                <span>可靠的合作体系</span>
-                            </li>
-                            <li class="display_flex flex-direction_column align-items_center">
-                                <div class="display_flex flex-direction_column justify-content_flex-center align-items_center">
-                                    <img src="../../../static/images/ServiceChannels/产品体系-icon.png" alt="">
-                                </div>
-                                <span>完善的产品体系</span>
-                            </li>
-                            <li class="display_flex flex-direction_column align-items_center">
-                                <div class="display_flex flex-direction_column justify-content_flex-center align-items_center">
-                                    <img src="../../../static/images/ServiceChannels/价格-icon.png" alt="">
-                                </div>
-                                <span>良好的价格体系</span>
-                            </li>
-                        </ul>
+    <el-scrollbar 
+            v-scrollbar="paperScroll" 
+            ref="wrapper" 
+            style="height: 100%">
+        <div class="ServiceChannels">
+            <div class="content_01">
+                <img src="../../../static/images/ServiceChannels/新型模式-bg.png" alt="">
+                <div class="content display_flex flex-direction_column align-items_center">
+                    <div 
+                        :class="{titleActive:titleActive01}"
+                        class="ContentTitle display_flex flex-direction_column align-items_center">
+                        <span>新型模式</span>
+                        <span>The new model</span>
+                        <span></span>
                     </div>
-                    <div class="rigth display_flex flex-direction_column">
-                        <img src="../../../static/images/ServiceChannels/喇叭-icon.png" alt="">
-                        <span class="title">招商加盟条件</span>
-                        <span class="content">
-                            <p>1.具有合法的独立法人资质或持有营业执照的经营者； </p>
-                            <p>2.对智能门锁及其他智能家居有所了解并看好行业发展空间； </p>
-                            <p>3.能够严格遵守精益的经营模式和招商管理规定； </p>
-                            <p>4.有稳定的营业场所，设有电话、传真、网络等基本设备；</p> 
-                            <p>5.具备建立售后服务、安装、维修能力的人员，保证对所负责区域客户的及时服务； </p>
-                            <p>6.拥有一定的资金实力，可以达到公司规定的相关要求；</p>
-                        </span>
+                    <ul>
+                        <li class="display_flex flex-direction_column align-items_center">
+                            <img src="../../../static/images/ServiceChannels/库存-icon.png" alt="">
+                            <span class="line"></span>
+                            <span class="title">零库存</span>
+                            <span>零库存风险</span>
+                            <span>零压货风险</span>
+                            <span>中心仓库支持</span>
+                            <span>小投入大回报</span>
+                        </li>
+                        <li class="display_flex flex-direction_column align-items_center">
+                            <img src="../../../static/images/ServiceChannels/款项-icon.png" alt="">
+                            <span class="line"></span>
+                            <span class="title">款项随时回</span>
+                            <span>固定回款时间</span>
+                            <span>实时掌控市场</span>
+                            <span>针对性销售</span>
+                        </li>
+                        <li class="display_flex flex-direction_column align-items_center">
+                            <img src="../../../static/images/ServiceChannels/产品种类-icon.png" alt="">
+                            <span class="line"></span>
+                            <span class="title">产品种类丰富</span>
+                            <span>产品多样化</span>
+                            <span>竞争压力小</span>
+                            <span>发展潜力大</span>
+                        </li>
+                        <li class="display_flex flex-direction_column align-items_center">
+                            <img src="../../../static/images/ServiceChannels/管理-icon.png" alt="">
+                            <span class="line"></span>
+                            <span class="title">资讯化管理模式</span>
+                            <span>数据随时知</span>
+                            <span>信息回馈快</span>
+                            <span>沟通时效快</span>
+                            <span>掌控力度高</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="content_02">
+                <div class="content display_flex flex-direction_column align-items_center">
+                    <div 
+                        :class="{titleActive:titleActive02}"
+                        class="ContentTitle display_flex flex-direction_column align-items_center">
+                        <span>四大支持，无忧合作</span>
+                        <span>Four big support</span>
+                        <span></span>
+                    </div>
+                    <ul>
+                        <li class="display_flex flex-direction_column">
+                            <img src="../../../static/images/ServiceChannels/平台支持-icon.png" alt="">
+                            <span class="title">平台支持</span>
+                            <span class="content">产品目录、在线门店、客户导流、赋能支持、售后管理</span>
+                        </li>
+                        <li class="display_flex flex-direction_column">
+                            <img src="../../../static/images/ServiceChannels/落地支持-icon.png" alt="">
+                            <span class="title">落地支持</span>
+                            <span class="content">专业课程培训、专业技术支持、市场活动支持、营销物料支持、信息系统支持</span>
+                        </li>
+                        <li class="display_flex flex-direction_column">
+                            <img src="../../../static/images/ServiceChannels/品牌支持-icon.png" alt="">
+                            <span class="title">品牌支持</span>
+                            <span class="content">语音：专访+录制、视频：广告+直播、文字：新闻+软文、纸质：画册+海报、门店：装修+陈列</span>
+                        </li>
+                        <li class="display_flex flex-direction_column">
+                            <img src="../../../static/images/ServiceChannels/业务支持-icon.png" alt="">
+                            <span class="title">业务支持</span>
+                            <span class="content">区域市场保护、营销策略指导、营销激励政策、样板市场打造、成功案例分享</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="content_03">
+                <div class="content display_flex flex-direction_column align-items_center">
+                    <div 
+                        :class="{titleActive:titleActive03}"
+                        class="ContentTitle display_flex flex-direction_column align-items_center">
+                        <span>五大体系，助你成功</span>
+                        <span>The five systems</span>
+                        <span></span>
+                    </div>
+                    <div class="con display_flex justify-content_flex-center ">
+                        <div class="left">
+                            <img src="../../../static/images/ServiceChannels/荣誉-bg.png" alt="">
+                            <ul>
+                                <li class="display_flex flex-direction_column align-items_center">
+                                    <div class="display_flex flex-direction_column justify-content_flex-center align-items_center">
+                                        <img src="../../../static/images/ServiceChannels/市场-icon.png" alt="">
+                                    </div>
+                                    <span>全面的市场体系</span>
+                                </li>
+                                <li class="display_flex flex-direction_column align-items_center">
+                                    <div class="display_flex flex-direction_column justify-content_flex-center align-items_center">
+                                        <img src="../../../static/images/ServiceChannels/售后-icon.png" alt="">
+                                    </div>
+                                    <span>无忧的售后体系</span>
+                                </li>
+                                <li class="display_flex flex-direction_column align-items_center">
+                                    <div class="display_flex flex-direction_column justify-content_flex-center align-items_center">
+                                        <img src="../../../static/images/ServiceChannels/合作-icon.png" alt="">
+                                    </div>
+                                    <span>可靠的合作体系</span>
+                                </li>
+                                <li class="display_flex flex-direction_column align-items_center">
+                                    <div class="display_flex flex-direction_column justify-content_flex-center align-items_center">
+                                        <img src="../../../static/images/ServiceChannels/产品体系-icon.png" alt="">
+                                    </div>
+                                    <span>完善的产品体系</span>
+                                </li>
+                                <li class="display_flex flex-direction_column align-items_center">
+                                    <div class="display_flex flex-direction_column justify-content_flex-center align-items_center">
+                                        <img src="../../../static/images/ServiceChannels/价格-icon.png" alt="">
+                                    </div>
+                                    <span>良好的价格体系</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="rigth display_flex flex-direction_column">
+                            <img src="../../../static/images/ServiceChannels/喇叭-icon.png" alt="">
+                            <span class="title">招商加盟条件</span>
+                            <span class="content">
+                                <p>1.具有合法的独立法人资质或持有营业执照的经营者； </p>
+                                <p>2.对智能门锁及其他智能家居有所了解并看好行业发展空间； </p>
+                                <p>3.能够严格遵守精益的经营模式和招商管理规定； </p>
+                                <p>4.有稳定的营业场所，设有电话、传真、网络等基本设备；</p> 
+                                <p>5.具备建立售后服务、安装、维修能力的人员，保证对所负责区域客户的及时服务； </p>
+                                <p>6.拥有一定的资金实力，可以达到公司规定的相关要求；</p>
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="content_04">
-            <img src="../../../static/images/ServiceChannels/加盟流程-bg.png" alt="">
-            <div class="content display_flex flex-direction_column align-items_center">
+            <div class="content_04">
+                <img src="../../../static/images/ServiceChannels/加盟流程-bg.png" alt="">
+                <div class="content display_flex flex-direction_column align-items_center">
+                    <div 
+                        :class="{titleActive:titleActive04}"
+                        class="ContentTitle display_flex flex-direction_column align-items_center">
+                        <span>加盟流程</span>
+                        <span>The five systems</span>
+                        <span></span>
+                    </div>
+                    <span>助力合作伙伴，实现互利共赢</span>
+                    <ul>
+                        <li class="display_flex flex-direction_column align-items_center">
+                            <img src="../../../static/images/ServiceChannels/联系我们-icon.png" alt="">
+                            <span>联系我们</span>
+                        </li>
+                        <li class="arrow">
+                            <img src="../../../static/images/ServiceChannels/右箭头-icon.png" alt="">
+                        </li>
+                        <li class="display_flex flex-direction_column align-items_center">
+                            <img src="../../../static/images/ServiceChannels/商务洽谈-icon.png" alt="">
+                            <span>商务洽谈</span>
+                        </li>
+                        <li class="arrow">
+                            <img src="../../../static/images/ServiceChannels/右箭头-icon.png" alt="">
+                        </li>
+                        <li class="display_flex flex-direction_column align-items_center">
+                            <img src="../../../static/images/ServiceChannels/签约合同-icon.png" alt="">
+                            <span>签约合同</span>
+                        </li>
+                        <li class="arrow">
+                            <img src="../../../static/images/ServiceChannels/右箭头-icon.png" alt="">
+                        </li>
+                        <li class="display_flex flex-direction_column align-items_center">
+                            <img src="../../../static/images/ServiceChannels/正式营业-icon.png" alt="">
+                            <span>正式营业</span>
+                        </li>
+                        <li class="arrow">
+                            <img src="../../../static/images/ServiceChannels/右箭头-icon.png" alt="">
+                        </li>
+                        <li class="display_flex flex-direction_column align-items_center">
+                            <img src="../../../static/images/ServiceChannels/持续服务-icon.png" alt="">
+                            <span>持续服务</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="content_05 display_flex flex-direction_column align-items_center">
                 <div 
-                    :class="{titleActive:titleActive04}"
+                    :class="{titleActive:titleActive05}"
                     class="ContentTitle display_flex flex-direction_column align-items_center">
-                    <span>加盟流程</span>
-                    <span>The five systems</span>
+                    <span>合作伙伴</span>
+                    <span>partners</span>
                     <span></span>
                 </div>
-                <span>助力合作伙伴，实现互利共赢</span>
-                <ul>
-                    <li class="display_flex flex-direction_column align-items_center">
-                        <img src="../../../static/images/ServiceChannels/联系我们-icon.png" alt="">
-                        <span>联系我们</span>
-                    </li>
-                    <li class="arrow">
-                        <img src="../../../static/images/ServiceChannels/右箭头-icon.png" alt="">
-                    </li>
-                    <li class="display_flex flex-direction_column align-items_center">
-                        <img src="../../../static/images/ServiceChannels/商务洽谈-icon.png" alt="">
-                        <span>商务洽谈</span>
-                    </li>
-                    <li class="arrow">
-                        <img src="../../../static/images/ServiceChannels/右箭头-icon.png" alt="">
-                    </li>
-                    <li class="display_flex flex-direction_column align-items_center">
-                        <img src="../../../static/images/ServiceChannels/签约合同-icon.png" alt="">
-                        <span>签约合同</span>
-                    </li>
-                    <li class="arrow">
-                        <img src="../../../static/images/ServiceChannels/右箭头-icon.png" alt="">
-                    </li>
-                    <li class="display_flex flex-direction_column align-items_center">
-                        <img src="../../../static/images/ServiceChannels/正式营业-icon.png" alt="">
-                        <span>正式营业</span>
-                    </li>
-                    <li class="arrow">
-                        <img src="../../../static/images/ServiceChannels/右箭头-icon.png" alt="">
-                    </li>
-                    <li class="display_flex flex-direction_column align-items_center">
-                        <img src="../../../static/images/ServiceChannels/持续服务-icon.png" alt="">
-                        <span>持续服务</span>
-                    </li>
-                </ul>
+                <img src="../../../static/images/ServiceChannels/合作伙伴-bg.png" alt="">
             </div>
         </div>
-        <div class="content_05 display_flex flex-direction_column align-items_center">
-            <div 
-                :class="{titleActive:titleActive05}"
-                class="ContentTitle display_flex flex-direction_column align-items_center">
-                <span>合作伙伴</span>
-                <span>partners</span>
-                <span></span>
-            </div>
-            <img src="../../../static/images/ServiceChannels/合作伙伴-bg.png" alt="">
-        </div>
-    </div>
+        <pageBottom></pageBottom>
+    </el-scrollbar>
 </template>
 <script>
+import pageBottom from "../../components/pageBottom";
 export default {
     name: "ServiceChannels",
     props:{},
@@ -214,10 +221,13 @@ export default {
             titleActive05: false,
         }
     },
+    components:{
+        pageBottom
+    },
     methods: {
-        paperScroll(val) {
-            console.log(val)
-        }
+        paperScroll(e) {
+            this.paperScrollTop = e.scrollTop;
+        },
     },
     watch:{
         paperScrollTop: function (val) {
@@ -239,7 +249,7 @@ export default {
         
     },
     mounted(){
-        this.paperScrollTop = this.$parent.paperScrollTop;
+        // this.paperScrollTop = this.$parent.paperScrollTop;
         setTimeout(()=>{
             this.titleActive01 = true;
         },500)
@@ -249,6 +259,7 @@ export default {
 
 <style lang="less" scoped>
 .ServiceChannels {
+    overflow-x: hidden;
     .ContentTitle {
         // height: 50px;
         position: relative;

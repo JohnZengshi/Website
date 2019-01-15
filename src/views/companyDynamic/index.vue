@@ -1,11 +1,18 @@
 <template>
-    <div class="companyDynamic">
-        <transition name="slide-fade">
-            <router-view></router-view>
-        </transition>
-    </div>
+    <el-scrollbar 
+            v-scrollbar="paperScroll" 
+            ref="wrapper" 
+            style="height: 100%">
+        <div class="companyDynamic">
+            <transition name="slide-fade">
+                <router-view></router-view>
+            </transition>
+        </div>
+        <pageBottom></pageBottom>
+    </el-scrollbar>
 </template>
 <script>
+import pageBottom from "../../components/pageBottom";
 export default {
     name: "companyDynamic",
     props:{},
@@ -14,17 +21,23 @@ export default {
             paperScrollTop: 0,
         }
     },
-    components:{},
-    
+    components:{
+        pageBottom
+    },
+    methods:{
+        paperScroll(e) {
+            this.paperScrollTop = e.scrollTop;
+        },
+    },
     mounted(){
-        this.paperScrollTop = this.$parent.paperScrollTop;
+        // this.paperScrollTop = this.$parent.paperScrollTop;
     }
 }
 </script>
 
 <style lang="less" scoped>
 .companyDynamic{
-    
+    overflow-x: hidden;
 }
 </style>
 

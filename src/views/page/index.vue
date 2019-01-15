@@ -1,19 +1,29 @@
 <template>
-    <div class="newsDetail display_flex flex-direction_column align-items_center">
-        <!-- <span class="title">{{pageData.title}}</span> -->
-        <!-- <span class="time">{{pageData.update_time}}</span> -->
-        <div class="pageHtml" v-html="pageData.content"></div>
-    </div>
+    <el-scrollbar 
+            v-scrollbar="paperScroll" 
+            ref="wrapper" 
+            style="height: 100%">
+        <div class="newsDetail display_flex flex-direction_column align-items_center">
+            <!-- <span class="title">{{pageData.title}}</span> -->
+            <!-- <span class="time">{{pageData.update_time}}</span> -->
+            <div class="pageHtml" v-html="pageData.content"></div>
+        </div>
+        <pageBottom></pageBottom>
+    </el-scrollbar>
 </template>
 <script>
     import {
         getPageInfo
     } from "../../network/api";
+    import pageBottom from "../../components/pageBottom";
     export default {
         data() {
             return {
                 pageData: {},
             }
+        },
+        components:{
+            pageBottom
         },
         watch: {
             $route: function (val) {
@@ -33,7 +43,10 @@
                     });
                     this.pageData = res.data;
                 })()
-            }
+            },
+            paperScroll(e) {
+                this.paperScrollTop = e.scrollTop;
+            },
         },
     }
 </script>
@@ -47,6 +60,7 @@
 
 <style lang="less" scoped>
 .newsDetail{
+    overflow-x: hidden;
     >.title{
         margin-top: 50px;
         width:742px;
