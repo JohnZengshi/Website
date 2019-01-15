@@ -8,7 +8,7 @@ const JoinInvestment = () => import('../views/joinInvestment/index.vue');
 const Register = () => import('../views/joinInvestment/views/register.vue');
 const FillInformation = () => import('../views/joinInvestment/views/fillInformation.vue');
 const RetailOutlets = () => import('../views/retailOutlets/index.vue');
-const AboutUS = () => import('../views/aboutUS/index.vue');
+const AboutUS = () => import('../views/page/index.vue');
 const CompanyDynamicIndex = () => import('../views/companyDynamic/views/index.vue');
 const NewsDetail = () => import('../views/companyDynamic/views/newsDetail/index.vue');
 Vue.use(Router);

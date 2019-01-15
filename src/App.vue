@@ -49,11 +49,24 @@
                                     v-for="(item,index) in nav_bottomData.list"
                                     class="display_flex flex-direction_column">
                                     <span>{{item.name}}</span>
-                                    <a 
-                                        :key="idx"
-                                        class="pointer" 
-                                        :href="i.url"
-                                        v-for="(i,idx) in item.sub">{{i.name}}</a>
+                                    <template
+                                        v-for="(i,idx) in item.sub">
+                                        <router-link
+                                            v-if="i.page_type == 0"
+                                            :key="idx"
+                                            class="pointer"
+                                            tag="a"
+                                            :to="i.url"
+                                            >{{i.name}}</router-link>
+                                        <a 
+                                            v-else-if="i.page_type == 1"
+                                            :key="idx"
+                                            class="pointer" 
+                                            :href="i.url"
+                                            target="_blank"
+                                            >{{i.name}}</a>
+                                    </template>
+                                    
                                 </li>
 
                                 <li class="display_flex flex-direction_column">
