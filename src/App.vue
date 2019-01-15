@@ -175,7 +175,7 @@
         z-index: 2;
         .topTab {
             width: 100%;
-            height: 70px;
+            // height: 70px;
             background: rgba(255, 255, 255, 1);
             position: fixed;
             top: 0;
@@ -187,8 +187,8 @@
             }
 
             >img {
-                width: 118px;
-                height: 44px;
+                width: 40px;
+                // height: 44px;
                 margin-left: 334px;
             }
 

@@ -37,6 +37,14 @@
         },
     }
 </script>
+<style lang="less">
+.newsDetail{
+        img{
+        max-width: 100%
+    }
+}
+</style>
+
 <style lang="less" scoped>
 .newsDetail{
     >.title{
@@ -61,6 +69,8 @@
     >.pageHtml{
         width: 730px;
         margin-bottom: 112px;
+        margin-top: 80px;
     }
+
 }
 </style>
