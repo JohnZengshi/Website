@@ -1,9 +1,9 @@
 <template>
     <div class="HomePage">
         <div class="banner_content_01">
-            <!-- <div class="RESEARCH">
+            <div class="RESEARCH">
                 <RESEARCH></RESEARCH>
-            </div> -->
+            </div>
             <div class="content display_flex flex-direction_column align-items_center">
                 <div class="banner">
                     <swiper class="swiperConent" :options="swiperOption" ref="mySwiper">

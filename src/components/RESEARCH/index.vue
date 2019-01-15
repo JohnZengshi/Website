@@ -10,6 +10,7 @@
     </div>
 </template>
 <script>
+    import {getBrowserInfo} from "../../utils/getBrowserInfo";
     export default {
         mounted() {
             // /最小和最大半径，半径阈值和实心圆的百分比
@@ -202,8 +203,10 @@
 
                 window.requestAnimationFrame(draw);
             }
-
-            init();
+            const sys = getBrowserInfo();
+            if(sys.browser != 'firefox'){
+                init();
+            }
         }
     }
 </script>
