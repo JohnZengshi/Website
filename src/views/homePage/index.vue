@@ -354,6 +354,7 @@ export default {
                 effect : 'fade',
                 pagination: {
                     el: '.swiper-pagination',
+                    bulletActiveClass: 'paginationActive',
                 },
             },
             content_01_titleActive: false,
@@ -439,6 +440,14 @@ export default {
     }
 }
 </script>
+<style lang="less">
+.swiper-pagination-bullet{
+    &.paginationActive{
+        background-color: #fff;
+        opacity: 1;
+    }
+}
+</style>
 
 <style lang="less" scoped>
 .HomePage{
@@ -754,12 +763,12 @@ export default {
                     font-weight:400;
                     line-height:18px;
                     color:rgba(77,61,51,1);
-                    &.line{
-                        width:31px;
-                        height:2px;
-                        background-color: #D5D5D5;
-                        display: inline-block;
-                    }
+                    // &.line{
+                    //     width:31px;
+                    //     height:2px;
+                    //     background-color: #D5D5D5;
+                    //     display: inline-block;
+                    // }
                 }
             }
             &.active {
