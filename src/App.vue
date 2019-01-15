@@ -71,9 +71,9 @@
 
                                 <li class="display_flex flex-direction_column">
                                     <span>服务热线：</span>
-                                    <span>400-566-1686</span>
+                                    <span>{{nav_bottomData.hot_line}}</span>
                                     <span>地址：</span>
-                                    <span>深圳市南山区南山街道德赛科技大厦2202</span>
+                                    <span>{{nav_bottomData.address}}</span>
                                 </li>
                             </ul>
                         </div>
@@ -82,7 +82,7 @@
                         </div>
                     </div>
                     <div class="bottom">
-                        Copyright&#1692014-2018 深圳市智享科技有限公司 版权所有 粤ICP备12019339号-2
+                        {{nav_bottomData.copyright}}
                     </div>
                 </div>
             </div>
