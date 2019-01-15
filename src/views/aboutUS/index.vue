@@ -1,7 +1,7 @@
 <template>
     <div class="newsDetail display_flex flex-direction_column align-items_center">
-        <span class="title">{{pageData.title}}</span>
-        <span class="time">{{pageData.update_time}}</span>
+        <!-- <span class="title">{{pageData.title}}</span> -->
+        <!-- <span class="time">{{pageData.update_time}}</span> -->
         <div class="pageHtml" v-html="pageData.content"></div>
     </div>
 </template>
