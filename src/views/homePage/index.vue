@@ -1,9 +1,9 @@
 <template>
     <div class="HomePage">
         <div class="banner_content_01">
-            <div class="RESEARCH">
+            <!-- <div class="RESEARCH">
                 <RESEARCH></RESEARCH>
-            </div>
+            </div> -->
             <div class="content display_flex flex-direction_column align-items_center">
                 <div class="banner">
                     <swiper class="swiperConent" :options="swiperOption" ref="mySwiper">
@@ -24,7 +24,7 @@
                                 <span>快速</span>
                                 <span>微秒识别解锁只需0.3秒</span>
                             </div>
-                            <span>指纹锁采用微妙指纹识别芯片，指纹识别速度仅需0.3秒，芯片所具有的自主学习功能，不同角度的指纹输入都能够自动修正并识别</span>
+                            <span>指纹锁采用微秒指纹识别芯片，指纹识别速度仅需0.3秒，芯片所具有的自主学习功能，不同角度的指纹输入都能够自动修正并识别</span>
                             <ul class="display_flex align-items_center justify-content_flex-justify justify-content_flex-center">
                                 <li class="display_flex flex-direction_column align-items_center pointer">
                                     <img 
@@ -421,7 +421,8 @@ export default {
     methods:{
         toDetail(id){
             // window.open(url);
-            this.$router.push({path:"/CompanyDynamic/NewsDetail",query:{newsId:id}})
+            const routeData  = this.$router.resolve({path:"/CompanyDynamic/NewsDetail",query:{newsId:id}})
+            window.open(routeData.href, '_blank');
         }
     },
     mounted(){
@@ -601,6 +602,8 @@ export default {
                 height:160px;
                 margin-right: 50px;
                 >img{
+                    width: 70px;
+                    height: 70px;
                     transform: translateY(47px);
                     transition: all 0.5s;
                 }

@@ -12,7 +12,8 @@
                 <router-link 
                     class="display_flex"
                     :key="index"
-                    tag="li"
+                    tag="a"
+                    target="_blank"
                     :to="{path:'/CompanyDynamic/NewsDetail',query:{newsId:item.id}}"
                     v-for="(item,index) in daynamicList">
                     <img :src="item.img" alt="">
@@ -104,8 +105,7 @@ export default {
     ul {
         width: 100%;
         margin-top: 30px;
-
-        li {
+        a {
             border-bottom: 1px solid #D8D8D8;
             margin-bottom: 30px;
             width: 1054px;

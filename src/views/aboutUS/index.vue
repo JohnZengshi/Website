@@ -15,17 +15,25 @@
                 pageData: {},
             }
         },
+        watch: {
+            $route: function (val) {
+                const id = val.query.id;
+                this.getPageInfo(id);
+            }
+        },
         mounted() {
-            const id = this.$route.query.id;;
-            (async () => {
-                let res = await getPageInfo({
-                    id
-                });
-                this.pageData = res.data;
-            })()
+            const id = this.$route.query.id;
+            this.getPageInfo(id);
         },
         methods: {
-
+            getPageInfo(id) {
+                ;(async () => {
+                    let res = await getPageInfo({
+                        id
+                    });
+                    this.pageData = res.data;
+                })()
+            }
         },
     }
 </script>

@@ -61,7 +61,7 @@
                     <li class="display_flex flex-direction_column">
                         <img src="../../../static/images/ServiceChannels/平台支持-icon.png" alt="">
                         <span class="title">平台支持</span>
-                        <span class="content">产品目录、在线门店、客户导流、赋能支持、售后管</span>
+                        <span class="content">产品目录、在线门店、客户导流、赋能支持、售后管理</span>
                     </li>
                     <li class="display_flex flex-direction_column">
                         <img src="../../../static/images/ServiceChannels/落地支持-icon.png" alt="">
@@ -71,7 +71,7 @@
                     <li class="display_flex flex-direction_column">
                         <img src="../../../static/images/ServiceChannels/品牌支持-icon.png" alt="">
                         <span class="title">品牌支持</span>
-                        <span class="content">语音：专访+录制、视频：广告+直播、文字：新闻+软文、纸质：画册+海报、门店：装修+成列</span>
+                        <span class="content">语音：专访+录制、视频：广告+直播、文字：新闻+软文、纸质：画册+海报、门店：装修+陈列</span>
                     </li>
                     <li class="display_flex flex-direction_column">
                         <img src="../../../static/images/ServiceChannels/业务支持-icon.png" alt="">

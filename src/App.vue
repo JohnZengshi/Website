@@ -8,17 +8,25 @@
                 <div 
                     :class="{topTabChange:topTabChange}"
                     class="topTab display_flex justify-content_flex-justify align-items_center">
-                    <img src="../static/images/智享家LOGO-蓝色.png" title="智享家" alt="">
+                    <img :src="nav_bottomData.logo" title="智享家" alt="">
                     <div class="tab display_flex align-items_center">
                         <ul class="display_flex align-items_center">
-                            <router-link
-                                :key="index"
-                                v-for="(item,index) in topTabList"
-                                class="pointer"
-                                tag="li"
-                                :to="item.url"
-                                :class="{clicked:routerUrlName == item.url}"
-                                >{{item.name}}</router-link>
+                            <template
+                                v-for="(item,index) in topTabList">
+                                    <router-link
+                                        v-if="item.page_type == 0"
+                                        :key="index"
+                                        class="pointer"
+                                        tag="a"
+                                        :to="item.url"
+                                        :class="{clicked:routerUrlName == item.url}"
+                                        >{{item.name}}</router-link>
+                                    <a 
+                                        v-else-if="item.page_type == 1"
+                                        :href="item.url" 
+                                        target="_blank" 
+                                        rel="noopener noreferrer">{{item.name}}</a>
+                            </template>
                         </ul>
                         <a href="http://shop.smarlife.cn/">
                             <el-button type="primary" class="loginBtn">登录</el-button>
@@ -147,6 +155,7 @@
     .AppContent {
         min-width: 1300px;
         overflow-x: hidden;
+        overflow-y: hidden;
         // min-height: 100%;
         height: 100%;
         position: relative;
@@ -177,7 +186,7 @@
                 >ul {
                     height: 100%;
 
-                    li {
+                    a {
                         width: 60px;
                         height: 100%;
                         line-height: 70px;
