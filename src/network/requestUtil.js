@@ -1,4 +1,5 @@
 import axios from 'axios';
+import {baseUrl} from "./config";
 import {
     Message
 } from 'element-ui';
@@ -39,7 +40,7 @@ axios.interceptors.response.use(data => {
 // let base = '/api/interface';
 // let base = 'http://zxjapi.zhidekan.me';
 // let base = 'http://www.wanjiaan.com';
-let base = 'http://api.smarlife.cn'
+let base = baseUrl;
 
 export const postRequest = (url, params) => {
     return new Promise((resolve, reject) => {

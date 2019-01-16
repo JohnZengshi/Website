@@ -2,8 +2,8 @@
     <div class="newsDetail display_flex flex-direction_column align-items_center">
         <span class="title">{{newsDetail.title}}</span>
         <span class="time">{{newsDetail.update_time}}</span>
-        <img :src="newsDetail.cover_img" alt="">
-        <span class="content">{{newsDetail.summary}}</span>
+        <!-- <img :src="newsDetail.cover_img" alt=""> -->
+        <span class="content" v-html="newsDetail.content"></span>
     </div>
 </template>
 <script>

@@ -36,7 +36,7 @@
                         <div class="front">
                             <el-upload
                                 class="avatar-uploader"
-                                action="http://www.wanjiaan.com/upload/upload"
+                                :action="baseUrl"
                                 :show-file-list="false"
                                 :on-success="(res)=>retailersFormData.idcard_font_img = res.file"
                                 :before-upload="beforeAvatarUpload">
@@ -48,7 +48,7 @@
                         <div class="Reverse">
                             <el-upload
                                 class="avatar-uploader"
-                                action="http://www.wanjiaan.com/upload/upload"
+                                :action="baseUrl"
                                 :show-file-list="false"
                                 :on-success="(res)=>retailersFormData.idcard_back_img = res.file"
                                 :before-upload="beforeAvatarUpload">
@@ -62,7 +62,7 @@
                 <el-form-item label="签约合同 (带有双方公司名称)" label-width="180px">
                     <el-upload
                         class="avatar-uploader"
-                        action="http://www.wanjiaan.com/upload/upload"
+                        :action="baseUrl"
                         :show-file-list="false"
                         :on-success="(res)=>retailersFormData.signing_contract_img = res.file"
                         :before-upload="beforeAvatarUpload">
@@ -105,7 +105,7 @@
                         <div class="front">
                             <el-upload
                                 class="avatar-uploader"
-                                action="http://www.wanjiaan.com/upload/upload"
+                                :action="baseUrl"
                                 :show-file-list="false"
                                 :on-success="(res)=>facilitatorFormData.idcard_font_img = res.file"
                                 :before-upload="beforeAvatarUpload">
@@ -117,7 +117,7 @@
                         <div class="Reverse">
                             <el-upload
                                 class="avatar-uploader"
-                                action="http://www.wanjiaan.com/upload/upload"
+                                :action="baseUrl"
                                 :show-file-list="false"
                                 :on-success="(res)=>facilitatorFormData.idcard_back_img = res.file"
                                 :before-upload="beforeAvatarUpload">
@@ -131,7 +131,7 @@
                 <el-form-item label="公司营业执照" label-width="180px">
                     <el-upload
                         class="avatar-uploader"
-                        action="http://www.wanjiaan.com/upload/upload"
+                        :action="baseUrl"
                         :show-file-list="false"
                         :on-success="(res)=>facilitatorFormData.license_img = res.file"
                         :before-upload="beforeAvatarUpload">
@@ -142,7 +142,7 @@
                 <el-form-item label="签约合同 (带有双方公司名称)" label-width="180px">
                     <el-upload
                         class="avatar-uploader"
-                        action="http://www.wanjiaan.com/upload/upload"
+                        :action="baseUrl"
                         :show-file-list="false"
                         :on-success="(res)=>facilitatorFormData.signing_contract_img = res.file"
                         :before-upload="beforeAvatarUpload">
@@ -153,7 +153,7 @@
                 <el-form-item label="签约合影照片" label-width="180px">
                     <el-upload
                         class="avatar-uploader"
-                        action="http://www.wanjiaan.com/upload/upload"
+                        :action="baseUrl"
                         :show-file-list="false"
                         :on-success="(res)=>facilitatorFormData.group_photo = res.file"
                         :before-upload="beforeAvatarUpload">
@@ -196,7 +196,7 @@
                         <div class="front">
                             <el-upload
                                 class="avatar-uploader"
-                                action="http://www.wanjiaan.com/upload/upload"
+                                :action="baseUrl"
                                 :show-file-list="false"
                                 :on-success="(res)=>distributorsFormData.idcard_font_img = res.file"
                                 :before-upload="beforeAvatarUpload">
@@ -208,7 +208,7 @@
                         <div class="Reverse">
                             <el-upload
                                 class="avatar-uploader"
-                                action="http://www.wanjiaan.com/upload/upload"
+                                :action="baseUrl"
                                 :show-file-list="false"
                                 :on-success="(res)=>distributorsFormData.idcard_back_img = res.file"
                                 :before-upload="beforeAvatarUpload">
@@ -222,7 +222,7 @@
                 <el-form-item label="公司营业执照" label-width="180px">
                     <el-upload
                         class="avatar-uploader"
-                        action="http://www.wanjiaan.com/upload/upload"
+                        :action="baseUrl"
                         :show-file-list="false"
                         :on-success="(res)=>distributorsFormData.license_img = res.file"
                         :before-upload="beforeAvatarUpload">
@@ -233,7 +233,7 @@
                 <el-form-item label="签约合同 (带有双方公司名称)" label-width="180px">
                     <el-upload
                         class="avatar-uploader"
-                        action="http://www.wanjiaan.com/upload/upload"
+                        :action="baseUrl"
                         :show-file-list="false"
                         :on-success="(res)=>distributorsFormData.signing_contract_img = res.file"
                         :before-upload="beforeAvatarUpload">
@@ -244,7 +244,7 @@
                 <el-form-item label="签约合影照片" label-width="180px">
                     <el-upload
                         class="avatar-uploader"
-                        action="http://www.wanjiaan.com/upload/upload"
+                        :action="baseUrl"
                         :show-file-list="false"
                         :on-success="(res)=>distributorsFormData.group_photo = res.file"
                         :before-upload="beforeAvatarUpload">
@@ -269,10 +269,12 @@
     import CityLinkage from "../../../components/cityLinkage";
     import {getRegion,applyStepTwo,getStoreInfo} from "../../../network/api";
     import {$message} from "../../../utils/elmApi";
+    import {baseUrl} from "../../../network/config";
     export default {
         name: "fillInformation",
         data(){
             return {
+                baseUrl: baseUrl+'/upload/upload',
                 businessType: "1",
                 retailersFormData: { //零售商
                     businessName: "",

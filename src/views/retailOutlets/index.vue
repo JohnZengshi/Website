@@ -1,47 +1,54 @@
 <template>
-    <div class="retailOutlets">
-        <div class="top">
-            <img src="../../../static/images/retailOutlets/公司动态-bg.png" alt="">
-            <div class="content display_flex flex-direction_column align-items_center">
-                <span>零售网点</span>
-                <span class="line"></span>
+    <el-scrollbar 
+            v-scrollbar="paperScroll" 
+            ref="wrapper" 
+            style="height: 100%">
+        <div class="retailOutlets">
+            <div class="top">
+                <img src="../../../static/images/retailOutlets/公司动态-bg.png" alt="">
+                <div class="content display_flex flex-direction_column align-items_center">
+                    <span>零售网点</span>
+                    <span class="line"></span>
+                </div>
             </div>
-        </div>
-        <div class="selectAdress display_flex align-items_center justify-content_flex-center">
-            <div class="left display_flex align-items_center">
-                <CityLinkage 
-                    @selectChange="selectChange"
-                    :hiddenRegion="true"
-                    :isAutoSelectNextRank="false"></CityLinkage>
-                <el-button @click="checkRetailOutlets">查询</el-button>
+            <div class="selectAdress display_flex align-items_center justify-content_flex-center">
+                <div class="left display_flex align-items_center">
+                    <CityLinkage 
+                        @selectChange="selectChange"
+                        :hiddenRegion="true"
+                        :isAutoSelectNextRank="false"></CityLinkage>
+                    <el-button @click="checkRetailOutlets">查询</el-button>
+                </div>
+                <div class="line"></div>
+                <div 
+                    v-if="selectCity.length != 0"
+                    class="rigth display_flex align-items_center">
+                    <img src="../../../static/images/retailOutlets/地址-icon.png" alt="">
+                    <span>{{selectCityStr}} 附近共有{{daynamicList.length}}个零售网点</span>
+                </div>
             </div>
-            <div class="line"></div>
-            <div 
-                v-if="selectCity.length != 0"
-                class="rigth display_flex align-items_center">
-                <img src="../../../static/images/retailOutlets/地址-icon.png" alt="">
-                <span>{{selectCityStr}} 附近共有{{daynamicList.length}}个零售网点</span>
+            <div class="daynamicList">
+                <ul class="display_flex flex-direction_column align-items_center ">
+                    <li class="display_flex" :key="index" v-for="(item,index) in daynamicList">
+                        <!-- <img :src="item.img" alt=""> -->
+                        <div class="rigth display_flex flex-direction_column">
+                            <span class="title">{{item.title}}</span>
+                            <span class="line"></span>
+                            <span class="address">地址：{{item.address}}</span>
+                            <!-- <span class="connet">联系人：{{item.connet}}</span> -->
+                            <span class="phone">电话：{{item.phone}}</span>
+                        </div>
+                    </li>
+                </ul>
             </div>
+            <pageBottom></pageBottom>
         </div>
-        <div class="daynamicList">
-            <ul class="display_flex flex-direction_column align-items_center ">
-                <li class="display_flex" :key="index" v-for="(item,index) in daynamicList">
-                    <!-- <img :src="item.img" alt=""> -->
-                    <div class="rigth display_flex flex-direction_column">
-                        <span class="title">{{item.title}}</span>
-                        <span class="line"></span>
-                        <span class="address">地址：{{item.address}}</span>
-                        <!-- <span class="connet">联系人：{{item.connet}}</span> -->
-                        <span class="phone">电话：{{item.phone}}</span>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>
+    </el-scrollbar>
 </template>
 <script>
     import CityLinkage from "../../components/cityLinkage";
     import {getRegion,getRetailer} from "../../network/api";
+    import pageBottom from "../../components/pageBottom";
     export default {
         name: "retailOutlets",
         props: {},
@@ -55,7 +62,8 @@
             }
         },
         components:{
-            CityLinkage
+            CityLinkage,
+            pageBottom
         },
         computed:{
             daynamicList(){
@@ -72,6 +80,9 @@
             }
         },
         methods:{
+            paperScroll(e) {
+                this.paperScrollTop = e.scrollTop;
+            },
             selectChange(val){
                 console.log(val);
                 this.selectCity = val;

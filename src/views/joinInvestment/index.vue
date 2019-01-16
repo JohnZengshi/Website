@@ -1,12 +1,19 @@
 <template>
-    <div class="joinInvestment">
-        <span class="title">{{routerName == 'Register'?"手机号注册":"填写资料"}}</span>
-        <transition name="slide-fade">
-            <router-view></router-view>
-        </transition>
-    </div>
+    <el-scrollbar 
+            v-scrollbar="paperScroll" 
+            ref="wrapper" 
+            style="height: 100%">
+        <div class="joinInvestment">
+            <span class="title">{{routerName == 'Register'?"手机号注册":"填写资料"}}</span>
+            <transition name="slide-fade">
+                <router-view></router-view>
+            </transition>
+        </div>
+        <pageBottom></pageBottom>
+    </el-scrollbar>
 </template>
 <script>
+    import pageBottom from "../../components/pageBottom";
     export default {
         name: "joinInvestment",
         data(){
@@ -14,10 +21,18 @@
                 routerName: "Register"
             }
         },
+        components:{
+            pageBottom
+        },
         watch:{
             $route: function (val) {
                 // console.log(val.name)
                 this.routerName = val.name;
+            },
+        },
+        methods: {
+            paperScroll(e) {
+                this.paperScrollTop = e.scrollTop;
             },
         },
         

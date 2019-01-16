@@ -436,15 +436,21 @@ export default {
             window.open(routeData.href, '_blank');
         }
     },
+    created() {},
     mounted(){
         // this.paperScrollTop = this.$parent.paperScrollTop;
-        setTimeout(()=>{
+        setTimeout(() => {
             this.content_01_titleActive = true;
-        },1000);
+        }, 1000);
 
-        ;(async()=>{
-            let getTopNewsRES = await getTopNews({store_no:this.GlobalData.store_no});
-            let getBannerRES = await getBanner({store_no:this.GlobalData.store_no});
+        ;
+        (async () => {
+            let getTopNewsRES = await getTopNews({
+                store_no: this.GlobalData.store_no
+            });
+            let getBannerRES = await getBanner({
+                store_no: this.GlobalData.store_no
+            });
             this.bannerList = getBannerRES.data;
             this.getTopNewsRES_DATA = getTopNewsRES.data;
 
@@ -615,7 +621,7 @@ export default {
                 margin-right: 50px;
                 >img{
                     width: 70px;
-                    height: 70px;
+                    // height: 70px;
                     transform: translateY(47px);
                     transition: all 0.5s;
                 }

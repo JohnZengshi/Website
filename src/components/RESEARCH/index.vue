@@ -204,7 +204,8 @@
                 window.requestAnimationFrame(draw);
             }
             const sys = getBrowserInfo();
-            if(sys.browser != 'firefox'){
+            console.log(sys)
+            if(sys.browser != 'firefox' && sys.browser != 'msie'){
                 init();
             }
         }

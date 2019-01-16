@@ -33,7 +33,7 @@
             </div>
             <div class="viewsMain">
                 <transition name="slide-fade">
-                    <router-view :ref="routerName"></router-view>
+                    <router-view :ref="routerName"></router-view>                        
                 </transition>
             </div>
             
@@ -42,7 +42,7 @@
 </template>
 
 <script>
-    import {getNav_top} from "./network/api";
+    import {getNav_top,getNav_bottom} from "./network/api";
     export default {
         name: 'app',
         data() {
@@ -98,6 +98,14 @@
                }
            })()
            ;
+           (async () => {
+               let getNav_bottomRES = await getNav_bottom({
+                   store_no: this.GlobalData.store_no
+               })
+               if (getNav_bottomRES.errCode == 0) {
+                   this.nav_bottomData = getNav_bottomRES.data
+               }
+           })()
         }
     }
 </script>
